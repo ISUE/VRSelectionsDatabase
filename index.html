@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+  <head>
+    <title>Interactive Data Visualizer Web App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!--  Bootstrap CSS -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+    crossorigin="anonymous"
+  />
+
+    <!-- Load jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+    <!-- Load Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+    <!-- Load PapaParse to read csv files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+  </head>
+
+  <!-- This Body tag will contain the entire content of the page -->
+  <body>
+    <header>
+        <h1>Interactive Data Visualizer Web App</h1>
+    </header>
+    <div class="container">
+        <h2>Scatterplot and Filterable Table</h2>
+        <p>This web app serves as an interactive tool to visualize the data along with applying filters to the data to adjust the displayed content.</p>
+        <input type="file" onchange="previewFile()" /><br />
+        <p class="content"></p>
+        <!-- Button trigger modal, this button will open up the modal to see what the currently selected data point shows -->
+        <!-- By default, it will have --  for its initial values for the 19 features that don't include what can be viewed via the hover per data point-->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataPointModal">
+            Data Point Modal
+          </button>
+          <!-- Modal, this is the pop-up for each data point that is selected, it will reference 'script.js' which uses Chart.js to create the scatterplot -->
+          <div class="modal fade" id="dataPointModal" tabindex="-1" aria-labelledby="dataPointModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="dataPointModalLabel">Individual Data Point Information</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- These are the two rows that will house the features for this section and populate them with the selected data point's values-->
+                <div class="modal-body">
+                  <div class="row">
+                    <p class="h3"><strong>Features 1-12</strong></p>
+                  </div>
+                  <div class="row">
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Application</strong></p>
+                      <p class="text-dark bg-white" id='feature1'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Link/Timestamp</strong></p>
+                      <p class="text-dark bg-white" id='feature2'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Description</strong></p>
+                      <p class="text-dark bg-white" id='feature3'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Flat UI</strong></p>
+                      <p class="text-dark bg-white" id='feature4'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Speed vs Accuracy</strong></p>
+                      <p class="text-dark bg-white" id='feature5'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Avg. Num selectables</strong></p>
+                      <p class="text-dark bg-white" id='feature6'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Max Num Selectables</strong></p>
+                      <p class="text-dark bg-white" id='feature7'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Unique Targets?</strong></p>
+                      <p class="text-dark bg-white" id='feature8'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Selectable Size</strong></p>
+                      <p class="text-dark bg-white" id='feature9'>--</p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Target Distance</strong></p>
+                      <p class="text-dark bg-white" id='feature10'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Static or Moving</strong></p>
+                      <p class="text-dark bg-white" id='feature11'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Arrangement</strong></p>
+                      <p class="text-dark bg-white" id='feature12'>-- </p>
+                    </div>
+                    
+                  </div>
+                  <br>
+                  <br>
+                  <div class="row">
+                    <pclass="h3"><strong>Features 13-19</strong></p>
+                  </div>
+                  <div class="row">
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Reference Frame</strong></p>
+                      <p class="text-dark bg-white" id='feature13'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Direction</strong></p>
+                      <p class="text-dark bg-white" id='feature14'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Occlusion</strong></p>
+                      <p class="text-dark bg-white" id='feature15'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Selection Technique</strong></p>
+                      <p class="text-dark bg-white" id='feature16'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Hover Feedback?</strong></p>
+                      <p class="text-dark bg-white" id='feature17'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Feedback Immediacy?</strong></p>
+                      <p class="text-dark bg-white" id='feature18'>-- </p>
+                    </div>
+                    <div class="col-2">
+                      <p class="text-dark bg-white"><strong>Locomotion Allowed?</strong></p>
+                      <p class="text-dark bg-white" id='feature19'>-- </p>
+                    </div>
+
+                    <p class="text-danger bg-white"><strong>*** To ensure only one new tab for redirection is opened, please refresh the page in between clicking on the data points.</strong></p>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button"  id="youtubeButton" class="btn btn-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .75rem; --bs-btn-font-size: .85rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                      <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- This where the Scatterplot will go -->
+    <canvas id="container" style="width:100%; height:400px;"></canvas>
+    <!-- Here are the import statements for the scripts used-->
+    <script src="script.js"></script>
+    <script src="filterMenu.js"></script>
+    <script src="csv_to_html_table.js"></script>
+    <script src="jquery.csv.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>   
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> 
+
+    <br>
+
+    <!-- This is where the Offcanvas functionality will be detailed -->
+    <!-- Offcanvas filter menu might be removed since it's not fully completed, or disable interaction for the time being -->
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      Click Here to Open Scatterplot Filters
+    </button>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Scatterplot Filter Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+         <p> Using these buttons below, you can open up various categories to alter the data displayed on the Scatterplot. </p>
+         <p>You MUST click the "Apply Filters" button to see any changes. Also, you can reset the filters with the "Reset Filters" button.</p>
+        </div>
+        <div class="container">
+          <div class="container text-center">
+              <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab1">Flat UI</button>
+                  <div id="collapseTab1" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT1C1">
+                      <label class="form-check-label" for="CheckT1C1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT1C2">
+                      <label class="form-check-label" for="CheckT1C2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+              </div>
+              <br>
+  
+              <div class="row">
+                <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab2">Speed vs. Accuracy</button>
+                  <div id="collapseTab2" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT2C1">
+                      <label class="form-check-label" for="CheckT2C1">
+                        Equal
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT2C2">
+                      <label class="form-check-label" for="CheckT2C2">
+                        Speed
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT2C3">
+                      <label class="form-check-label" for="CheckT2C3">
+                        Accuracy
+                      </label>
+                    </div>
+                  </div>
+              </div>
+              <br>
+              
+              <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab3">Avg. Num Selectables in View</button>
+                  <div id="collapseTab3" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT3C1">
+                      <label class="form-check-label" for="CheckT3C1">
+                        1-2
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT3C2">
+                      <label class="form-check-label" for="CheckT3C2">
+                        3-9
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT3C3">
+                      <label class="form-check-label" for="CheckT3C3">
+                        10-19
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT3C4">
+                      <label class="form-check-label" for="CheckT2C3">
+                        20+
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab4">Max Num Selectables in View</button>
+                  <div id="collapseTab4" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT4C1">
+                      <label class="form-check-label" for="CheckT4C1">
+                        3-9
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT4C2">
+                      <label class="form-check-label" for="CheckT4C2">
+                        10-19
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT4C3">
+                      <label class="form-check-label" for="CheckT4C3">
+                        20+
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="Check4C4">
+                      <label class="form-check-label" for="CheckT4C4">
+                        1-2
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab5">Unique Target</button>
+                  <div id="collapseTab5" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT5C1">
+                      <label class="form-check-label" for="CheckT5C1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT5C2">
+                      <label class="form-check-label" for="CheckT5C2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab6">Selectable Size</button>
+                  <div id="collapseTab6" class="collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT6C1">
+                      <label class="form-check-label" for="CheckT6C1">
+                        Tiny
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT6C2">
+                      <label class="form-check-label" for="CheckT6C2">
+                        Small
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT6C3">
+                      <label class="form-check-label" for="CheckT3C3">
+                        Medium
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT6C4">
+                      <label class="form-check-label" for="CheckT6C4">
+                        Large
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab7">Target Distance</button>
+                  <div id="collapseTab7" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT7C1">
+                      <label class="form-check-label" for="CheckT7C1">
+                        Peripersonal
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT7C2">
+                      <label class="form-check-label" for="CheckT7C2">
+                        Extrapersonal
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT7C3">
+                      <label class="form-check-label" for="CheckT7C3">
+                        On-body
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab8">Static or Moving Target</button>
+                  <div id="collapseTab8" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT8C1">
+                      <label class="form-check-label" for="CheckT8C1">
+                        Static
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT8C2">
+                      <label class="form-check-label" for="CheckT8C2">
+                        Moving
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT8C3">
+                      <label class="form-check-label" for="CheckT8C3">
+                        Both
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab9">Arrangement</button>
+                  <div id="collapseTab9" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT9C1">
+                      <label class="form-check-label" for="CheckT9C1">
+                        Random
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT9C2">
+                      <label class="form-check-label" for="CheckT9C2">
+                        List
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT9C3">
+                      <label class="form-check-label" for="CheckT9C3">
+                        Circular
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT9C4">
+                      <label class="form-check-label" for="CheckT9C4">
+                        Grid
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab10">Reference Frame</button>
+                  <div id="collapseTab10" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT10C1">
+                      <label class="form-check-label" for="CheckT10C1">
+                        Environment
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT10C2">
+                      <label class="form-check-label" for="CheckT10C2">
+                        Hand
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT10C3">
+                      <label class="form-check-label" for="CheckT10C3">
+                        Head
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT10C4">
+                      <label class="form-check-label" for="CheckT10C4">
+                        Body
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab11">Direction</button>
+                  <div id="collapseTab11" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT11C1">
+                      <label class="form-check-label" for="CheckT11C1">
+                        Center
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT11C2">
+                      <label class="form-check-label" for="CheckT11C2">
+                        Periphery
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT11C3">
+                      <label class="form-check-label" for="CheckT11C3">
+                        Both
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab12">Occlusion</button>
+                  <div id="collapseTab12" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT12C1">
+                      <label class="form-check-label" for="CheckT12C1">
+                        None
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT12C2">
+                      <label class="form-check-label" for="CheckT12C2">
+                        Minimal
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT12C3">
+                      <label class="form-check-label" for="CheckT12C3">
+                        Heavy
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab13">Selection Technique</button>
+                  <div id="collapseTab13" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT13C1">
+                      <label class="form-check-label" for="CheckT13C1">
+                        Point
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT13C2">
+                      <label class="form-check-label" for="CheckT13C2">
+                        Grasp
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT13C3">
+                      <label class="form-check-label" for="CheckT13C3">
+                        Touch
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT13C4">
+                      <label class="form-check-label" for="CheckT13C4">
+                        Shoot
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT13C5">
+                      <label class="form-check-label" for="CheckT13C5">
+                        Throw
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT13C6">
+                      <label class="form-check-label" for="CheckT13C6">
+                        Cross
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT13C7">
+                      <label class="form-check-label" for="CheckT13C7">
+                        Push
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT13C8">
+                      <label class="form-check-label" for="CheckT13C8">
+                        Manipulate
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab14">Hover Feedback</button>
+                  <div id="collapseTab14" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT14C1">
+                      <label class="form-check-label" for="CheckT14C1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT14C2">
+                      <label class="form-check-label" for="CheckT14C2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab15">Feedback Immediacy</button>
+                  <div id="collapseTab15" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT15C1">
+                      <label class="form-check-label" for="CheckT15C1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT15C2">
+                      <label class="form-check-label" for="CheckT15C2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab16">Locomotion Allowed</button>
+                  <div id="collapseTab16" class="collapse multi-collapse">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT16C1">
+                      <label class="form-check-label" for="CheckT16C1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="CheckT16C2">
+                      <label class="form-check-label" for="CheckT16C2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                  <div class="col">
+                    <!--
+
+                      <button id="applyFiltersButton" class="btn btn-primary" onclick="checkboxStates()">Apply Filters</button>
+                    -->
+
+                    <!-- TODO: These two buttons will be used to manipulate the view of the scatterplot once filters have been applied or to reset the view-->
+                    <button id="applyFiltersButton" class="btn btn-primary" onclick="readCSV()">Apply Filters</button>
+                  </div>
+                  <div class="col">
+                    <button id="clearFiltersButton" class="btn btn-danger" onclick="uncheckAllCheckboxes()">Clear Filters</button>
+                  </div>
+                </div>
+                
+            </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+      <br>
+      <br>
+      <br>
+
+      <!-- This is where the Filterable Table using JQuery will be detailed-->
+      <p><strong>Filterable Sorted Table: Use the search field to narrow your results.</strong></p>
+      <p>The first time you click on a specific column header, the sorting direction is ascending order.</p>
+      <p>Click again, and the sorting direction will be descending order</p>
+
+
+      <div id="table-container"></div>
+    
+      <script>
+      
+        function format_link(link) {
+            if (link)
+                return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+            else return "";
+        }
+
+        CsvToHtmlTable.init({
+            csv_path: "data.csv",
+            element: "table-container",
+            allow_download: false,
+            csv_options: {
+                separator: ",",
+                delimiter: '"'
+            },
+            datatables_options: {
+                paging: false
+            },
+            /*custom_formatting: [
+                [2, format_link]
+            ] */
+        });
+
+
+        
+        </script>
+
+    <footer>
+      <p class="text-center">This webpage was made for data visualization purposes.</p>
+        </footer>
+
+  </body>
+
+</html>
