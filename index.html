@@ -35,35 +35,35 @@
         <h1>Interactive Data Visualizer Web App</h1>
     </header>
     <div class="container">
-        <h2>Scatterplot and Filterable Table</h2>
-        <p>This web app serves as an interactive tool to visualize the data along with applying filters to the data to adjust the displayed content.</p>
-        <input type="file" onchange="previewFile()" /><br />
+        <!-- <h2>Scatterplot and Filterable Table</h2> -->
+        <!-- <p>This web app serves as an interactive tool to visualize the data along with applying filters to the data to adjust the displayed content.</p> -->
+        <!-- <input type="file" onchange="previewFile()" /><br /> -->
         <p class="content"></p>
         <!-- Button trigger modal, this button will open up the modal to see what the currently selected data point shows -->
         <!-- By default, it will have --  for its initial values for the 19 features that don't include what can be viewed via the hover per data point-->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataPointModal">
+          <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataPointModal">
             Data Point Modal
-          </button>
+          </button> -->
           <!-- Modal, this is the pop-up for each data point that is selected, it will reference 'script.js' which uses Chart.js to create the scatterplot -->
           <div class="modal fade" id="dataPointModal" tabindex="-1" aria-labelledby="dataPointModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="dataPointModalLabel">Individual Data Point Information</h1>
+                  <h1 class="modal-title fs-5" id="dataPointModalLabel">Selection scenario attributes</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <!-- These are the two rows that will house the features for this section and populate them with the selected data point's values-->
                 <div class="modal-body">
-                  <div class="row">
-                    <p class="h3"><strong>Features 1-12</strong></p>
-                  </div>
+                  <!-- <div class="row">
+                    <p class="h3"><strong>Selection scenario attributes</strong></p>
+                  </div> -->
                   <div class="row">
                     <div class="col-2">
                       <p class="text-dark bg-white"><strong>Application</strong></p>
                       <p class="text-dark bg-white" id='feature1'>-- </p>
                     </div>
                     <div class="col-2">
-                      <p class="text-dark bg-white"><strong>Link/Timestamp</strong></p>
+                      <p class="text-dark bg-white"><strong>Link</strong></p>
                       <p class="text-dark bg-white" id='feature2'>-- </p>
                     </div>
                     <div class="col-2">
@@ -109,10 +109,10 @@
                     
                   </div>
                   <br>
-                  <br>
-                  <div class="row">
+                  <!-- <br> -->
+                  <!-- <div class="row">
                     <pclass="h3"><strong>Features 13-19</strong></p>
-                  </div>
+                  </div> -->
                   <div class="row">
                     <div class="col-2">
                       <p class="text-dark bg-white"><strong>Reference Frame</strong></p>
@@ -142,8 +142,6 @@
                       <p class="text-dark bg-white"><strong>Locomotion Allowed?</strong></p>
                       <p class="text-dark bg-white" id='feature19'>-- </p>
                     </div>
-
-                    <p class="text-danger bg-white"><strong>*** To ensure only one new tab for redirection is opened, please refresh the page in between clicking on the data points.</strong></p>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -158,9 +156,18 @@
             </div>
           </div>
         </div>
-
-        <!-- This where the Scatterplot will go -->
-    <canvas id="container" style="width:100%; height:400px;"></canvas>
+        
+    <!-- <div style="width:50%; height:50%;"> -->
+      <!-- <canvas id="container" style="width:100%; height:400px;"></canvas> -->
+      <!-- <canvas id="container" style="width:30px; height:30px; text-align: center;"></canvas> -->
+    <!-- </div> -->
+          
+    <!-- This where the Scatterplot will go -->
+    <div style="display: flex; justify-content: center;">
+      <div style="width:50%; height:50%;">
+          <canvas id="container" style="width:30px; height:30px;"></canvas>
+      </div>
+    </div>
     <!-- Here are the import statements for the scripts used-->
     <script src="script.js"></script>
     <script src="filterMenu.js"></script>
@@ -664,9 +671,6 @@
                 [2, format_link]
             ] */
         });
-
-
-        
         </script>
 
     <footer>

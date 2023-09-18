@@ -184,16 +184,8 @@ $(document).ready(function() {
             console.log(itemIndex);
             */
           
-            
-
-
-
-
-
-
-          
           document.getElementById('feature1').innerText =  value.name;
-          document.getElementById('feature2').innerText =   value.link;
+          // document.getElementById('feature2').innerText =  value.link;
           document.getElementById('feature3').innerText =  value.description;
           document.getElementById('feature4').innerText =  value.ui;
           document.getElementById('feature5').innerText =  value.speedAccuracy;
@@ -201,16 +193,16 @@ $(document).ready(function() {
           document.getElementById('feature7').innerText =  value.maxNumSelectable;
           document.getElementById('feature8').innerText =  value.uniqueTarget;
           document.getElementById('feature9').innerText =  value.size;
-          document.getElementById('feature10').innerText =  value.distance;
+          document.getElementById('feature10').innerText = value.distance;
           document.getElementById('feature11').innerText = value.staticMoving;
           document.getElementById('feature12').innerText = value.arrangement;
           document.getElementById('feature13').innerText = value.referenceFrame;
           document.getElementById('feature14').innerText = value.direction;
-          document.getElementById('feature15').innerText =  value.occlusion ;
-          document.getElementById('feature16').innerText =   value.selectionTechnique;
-          document.getElementById('feature17').innerText =   value.hoverIndication;
-          document.getElementById('feature18').innerText =   value.selectionImmediacy;
-          document.getElementById('feature19').innerText =   value.locomotionAllowed;
+          document.getElementById('feature15').innerText = value.occlusion ;
+          document.getElementById('feature16').innerText = value.selectionTechnique;
+          document.getElementById('feature17').innerText = value.hoverIndication;
+          document.getElementById('feature18').innerText = value.selectionImmediacy;
+          document.getElementById('feature19').innerText = value.locomotionAllowed;
 
           var button = document.getElementById('youtubeButton');
           var new_button = button.cloneNode(true);
