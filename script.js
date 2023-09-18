@@ -9,7 +9,7 @@
 
 $(document).ready(function() {
 
-  var TITLE = '2D Feature Space';
+  var TITLE = 'Object selection scenarios in VR (t-SNE Feature Space)';
   var POINT_X = 'X'; // column name for x values in data.csv
   var POINT_X_PREFIX = ''; // prefix for x values, eg '$'
   var POINT_X_POSTFIX = ''; // postfix for x values, eg '%'
