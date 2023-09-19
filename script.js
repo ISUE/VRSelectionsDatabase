@@ -184,6 +184,7 @@ function MakeScatter(csv_path = "./data.csv") {
           var value = myScatter.data.datasets[datasetIndex].data[itemIndex];
           
           console.log(value.color);
+          // console.log(value.link);
 
           document.getElementById('feature1.AppName').innerText = value.name;
           document.getElementById('feature3.Description').innerText = value.description;
