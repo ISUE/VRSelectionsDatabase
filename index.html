@@ -164,7 +164,7 @@
   <!-- This where the Scatterplot will go -->
   <div style="display: flex; justify-content: left;">
     <div style="width:40%; height:40%;">
-      <canvas id="container" style="width:30px; height:30px;"></canvas>
+      <canvas id="container" width="400" height="400"></canvas>
     </div>
 
     <div style="width:60%; padding-left: 40px;">
@@ -176,6 +176,13 @@
         <li>This t-SNE visualization was produced by representing the levels of all attributes as numbers, and
           condensing them down to 2D.</li>
         <li>Entries in the table below (scroll down) correspond to the points in scatter plot.</li>
+        <li>To make the data easier to visualize by adding noise, check this box:
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="AddNoiseSwitch">
+            <label class="custom-control-label" for="AddNoiseSwitch">Visualize with noise</label>
+          </div>
+        </li>
+
       </ul>
 
       <br>
@@ -685,11 +692,11 @@
 
   <br>
   <!-- This is where the Filterable Table using JQuery will be detailed-->
-  
+
   <div class="bg-light" style="padding: 5px 0px 5px 20px;">
     <h2>Filterable Sorted Table: Sortable columns and search field to narrow your results.</h2>
   </div>
-  
+
   <div id="table-container"></div>
 
   <script>
