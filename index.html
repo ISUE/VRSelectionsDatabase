@@ -28,10 +28,10 @@
 <!-- This Body tag will contain the entire content of the page -->
 
 <body>
-  <header style="padding: 5px 0px 20px 20px;">
-    <h1>Interactive Data Visualizer</h1>
+  <header class="bg-light" style="padding: 5px 0px 5px 20px;">
+    <h1>Interactive VR Object Selection Attributes Visualizer</h1>
   </header>
-  
+
   <div class="container">
     <p class="content"></p>
     <!-- Button trigger modal, this button will open up the modal to see what the currently selected data point shows -->
@@ -50,85 +50,98 @@
           <!-- These are the two rows that will house the features for this section and populate them with the selected data point's values-->
           <div class="modal-body">
             <div class="row">
-              <div class="col-2">
+              <div class="col-4">
                 <p class="text-dark bg-white"><strong>Application</strong></p>
-                <p class="text-dark bg-white" id='feature1'>-- </p>
+                <p class="text-dark bg-white" id='feature1.AppName'>-- </p>
               </div>
-              <div class="col-2">
+              <!-- <div class="col-2">
                 <p class="text-dark bg-white"><strong>Link</strong></p>
-                <p class="text-dark bg-white" id='feature2'>-- </p>
-              </div>
-              <div class="col-2">
+                <p class="text-dark bg-white" id='feature2.Link'>-- </p>
+              </div> -->
+              <div class="col-8">
                 <p class="text-dark bg-white"><strong>Description</strong></p>
-                <p class="text-dark bg-white" id='feature3'>-- </p>
+                <p class="text-dark bg-white" id='feature3.Description'>-- </p>
               </div>
+            </div>
+            <br>
+            <div class="row">
               <div class="col-2">
                 <p class="text-dark bg-white"><strong>Flat UI</strong></p>
-                <p class="text-dark bg-white" id='feature4'>-- </p>
-              </div>
-              <div class="col-2">
-                <p class="text-dark bg-white"><strong>Speed vs Accuracy</strong></p>
-                <p class="text-dark bg-white" id='feature5'>-- </p>
-              </div>
-              <div class="col-2">
-                <p class="text-dark bg-white"><strong>Avg. Num selectables</strong></p>
-                <p class="text-dark bg-white" id='feature6'>-- </p>
-              </div>
-              <div class="col-2">
-                <p class="text-dark bg-white"><strong>Max Num Selectables</strong></p>
-                <p class="text-dark bg-white" id='feature7'>-- </p>
-              </div>
-              <div class="col-2">
-                <p class="text-dark bg-white"><strong>Unique Targets?</strong></p>
-                <p class="text-dark bg-white" id='feature8'>-- </p>
-              </div>
-              <div class="col-2">
-                <p class="text-dark bg-white"><strong>Selectable Size</strong></p>
-                <p class="text-dark bg-white" id='feature9'>--</p>
+                <br>
+                <p class="text-dark bg-white" id='feature4.UI'>-- </p>
               </div>
               <div class="col-2">
                 <p class="text-dark bg-white"><strong>Target Distance</strong></p>
-                <p class="text-dark bg-white" id='feature10'>-- </p>
+                <p class="text-dark bg-white" id='feature10.Distance'>-- </p>
               </div>
               <div class="col-2">
+                <p class="text-dark bg-white"><strong>Reference Frame</strong></p>
+                <p class="text-dark bg-white" id='feature13.ReferenceFrame'>-- </p>
+              </div>
+              <div class="col-2">
+                <p class="text-dark bg-white"><strong>Speed vs Accuracy</strong></p>
+                <p class="text-dark bg-white" id='feature5.SpeedAccuracy'>-- </p>
+              </div>
+              <div class="col-2">
+                <p class="text-dark bg-white"><strong>Selection Technique</strong></p>
+                <p class="text-dark bg-white" id='feature16.SelectionTechnique'>-- </p>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-2">
+                <p class="text-dark bg-white"><strong>Avg. Num selectables</strong></p>
+                <p class="text-dark bg-white" id='feature6.NumSelectable'>-- </p>
+              </div>
+              <div class="col-2">
+                <p class="text-dark bg-white"><strong>Max Num Selectables</strong></p>
+                <p class="text-dark bg-white" id='feature7.MaxNumSelectable'>-- </p>
+              </div>
+              <div class="col-2">
+                <p class="text-dark bg-white"><strong>Unique Targets?</strong></p>
+                <p class="text-dark bg-white" id='feature8.UniqueTarget'>-- </p>
+              </div>
+              <div class="col-2">
+                <p class="text-dark bg-white"><strong>Selectable Size</strong></p>
+                <p class="text-dark bg-white" id='feature9.Size'>--</p>
+              </div>
+
+              <div class="col-2">
                 <p class="text-dark bg-white"><strong>Static or Moving</strong></p>
-                <p class="text-dark bg-white" id='feature11'>-- </p>
+                <p class="text-dark bg-white" id='feature11.StaticMoving'>-- </p>
               </div>
               <div class="col-2">
                 <p class="text-dark bg-white"><strong>Arrangement</strong></p>
-                <p class="text-dark bg-white" id='feature12'>-- </p>
+                <br>
+                <p class="text-dark bg-white" id='feature12.Arrangement'>-- </p>
               </div>
 
             </div>
             <br>
             <div class="row">
-              <div class="col-2">
-                <p class="text-dark bg-white"><strong>Reference Frame</strong></p>
-                <p class="text-dark bg-white" id='feature13'>-- </p>
-              </div>
+
               <div class="col-2">
                 <p class="text-dark bg-white"><strong>Direction</strong></p>
-                <p class="text-dark bg-white" id='feature14'>-- </p>
+                <br>
+                <p class="text-dark bg-white" id='feature14.Direction'>-- </p>
               </div>
               <div class="col-2">
                 <p class="text-dark bg-white"><strong>Occlusion</strong></p>
-                <p class="text-dark bg-white" id='feature15'>-- </p>
+                <br>
+                <p class="text-dark bg-white" id='feature15.Occlusion'>-- </p>
               </div>
-              <div class="col-2">
-                <p class="text-dark bg-white"><strong>Selection Technique</strong></p>
-                <p class="text-dark bg-white" id='feature16'>-- </p>
-              </div>
+
               <div class="col-2">
                 <p class="text-dark bg-white"><strong>Hover Feedback?</strong></p>
-                <p class="text-dark bg-white" id='feature17'>-- </p>
+                <p class="text-dark bg-white" id='feature17.HoverIndication'>-- </p>
               </div>
               <div class="col-2">
                 <p class="text-dark bg-white"><strong>Feedback Immediacy?</strong></p>
-                <p class="text-dark bg-white" id='feature18'>-- </p>
+                <p class="text-dark bg-white" id='feature18.SelectionImmediacy'>-- </p>
               </div>
               <div class="col-2">
                 <p class="text-dark bg-white"><strong>Locomotion Allowed?</strong></p>
-                <p class="text-dark bg-white" id='feature19'>-- </p>
+                <p class="text-dark bg-white" id='feature19.LocomotionAlowed'>-- </p>
               </div>
             </div>
           </div>
@@ -148,18 +161,13 @@
     </div>
   </div>
 
-  <!-- <div style="width:50%; height:50%;"> -->
-  <!-- <canvas id="container" style="width:100%; height:400px;"></canvas> -->
-  <!-- <canvas id="container" style="width:30px; height:30px; text-align: center;"></canvas> -->
-  <!-- </div> -->
-
   <!-- This where the Scatterplot will go -->
   <div style="display: flex; justify-content: left;">
-    <div style="width:50%; height:40%;">
+    <div style="width:40%; height:40%;">
       <canvas id="container" style="width:30px; height:30px;"></canvas>
     </div>
 
-    <div style="width:60%; padding-left: 20px;">
+    <div style="width:60%; padding-left: 40px;">
 
       <h3>Explanation</h3>
       <ul>
@@ -184,6 +192,7 @@
       <ul>
         <li>The first time you click on a specific column header, the sorting direction is ascending order.
           Click again, and the sorting direction will be descending order.</li>
+        <li>For custom filtering, type text into the search box above the table.</li>
       </ul>
 
       <!-- Offcanvas filter menu might be removed since it's not fully completed, or disable interaction for the time being -->
@@ -675,10 +684,12 @@
 
 
   <br>
-
   <!-- This is where the Filterable Table using JQuery will be detailed-->
-
-  <h2>Filterable Sorted Table: Sortable columns and search field to narrow your results.</h2>
+  
+  <div class="bg-light" style="padding: 5px 0px 5px 20px;">
+    <h2>Filterable Sorted Table: Sortable columns and search field to narrow your results.</h2>
+  </div>
+  
   <div id="table-container"></div>
 
   <script>

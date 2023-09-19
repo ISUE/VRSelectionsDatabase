@@ -177,32 +177,48 @@ $(document).ready(function() {
           const datasetIndex = dataPoint[0]._datasetIndex;
           const itemIndex = dataPoint[0]._index;
           var value = myScatter.data.datasets[datasetIndex].data[itemIndex];
-          console.log(value.color);
-/*
-            console.log(dataPoint); 
-            console.log(datasetIndex);
-            console.log(itemIndex);
-            */
+          // console.log(value.color);
           
-          document.getElementById('feature1').innerText =  value.name;
-          // document.getElementById('feature2').innerText =  value.link;
-          document.getElementById('feature3').innerText =  value.description;
-          document.getElementById('feature4').innerText =  value.ui;
-          document.getElementById('feature5').innerText =  value.speedAccuracy;
-          document.getElementById('feature6').innerText =  value.numSelectable;
-          document.getElementById('feature7').innerText =  value.maxNumSelectable;
-          document.getElementById('feature8').innerText =  value.uniqueTarget;
-          document.getElementById('feature9').innerText =  value.size;
-          document.getElementById('feature10').innerText = value.distance;
-          document.getElementById('feature11').innerText = value.staticMoving;
-          document.getElementById('feature12').innerText = value.arrangement;
-          document.getElementById('feature13').innerText = value.referenceFrame;
-          document.getElementById('feature14').innerText = value.direction;
-          document.getElementById('feature15').innerText = value.occlusion ;
-          document.getElementById('feature16').innerText = value.selectionTechnique;
-          document.getElementById('feature17').innerText = value.hoverIndication;
-          document.getElementById('feature18').innerText = value.selectionImmediacy;
-          document.getElementById('feature19').innerText = value.locomotionAllowed;
+          // document.getElementById('feature1').innerText =  value.name;
+          // // document.getElementById('feature2').innerText =  value.link;
+          // document.getElementById('feature3').innerText =  value.description;
+          // document.getElementById('feature4').innerText =  value.ui;
+          // document.getElementById('feature5').innerText =  value.speedAccuracy;
+          // document.getElementById('feature6').innerText =  value.numSelectable;
+          // document.getElementById('feature7').innerText =  value.maxNumSelectable;
+          // document.getElementById('feature8').innerText =  value.uniqueTarget;
+          // document.getElementById('feature9').innerText =  value.size;
+          // document.getElementById('feature10').innerText = value.distance;
+          // document.getElementById('feature11').innerText = value.staticMoving;
+          // document.getElementById('feature12').innerText = value.arrangement;
+          // document.getElementById('feature13').innerText = value.referenceFrame;
+          // document.getElementById('feature14').innerText = value.direction;
+          // document.getElementById('feature15').innerText = value.occlusion ;
+          // document.getElementById('feature16').innerText = value.selectionTechnique;
+          // document.getElementById('feature17').innerText = value.hoverIndication;
+          // document.getElementById('feature18').innerText = value.selectionImmediacy;
+          // document.getElementById('feature19').innerText = value.locomotionAllowed;
+          
+          document.getElementById('feature1.AppName').innerText =  value.name;
+          // document.getElementById('feature2.Link').innerText =  value.link;
+          document.getElementById('feature3.Description').innerText =  value.description;
+          document.getElementById('feature4.UI').innerText =  value.ui;
+          document.getElementById('feature5.SpeedAccuracy').innerText =  value.speedAccuracy;
+          document.getElementById('feature6.NumSelectable').innerText =  value.numSelectable;
+          document.getElementById('feature7.MaxNumSelectable').innerText =  value.maxNumSelectable;
+          document.getElementById('feature8.UniqueTarget').innerText =  value.uniqueTarget;
+          document.getElementById('feature9.Size').innerText =  value.size;
+          document.getElementById('feature10.Distance').innerText = value.distance;
+          document.getElementById('feature11.StaticMoving').innerText = value.staticMoving;
+          document.getElementById('feature12.Arrangement').innerText = value.arrangement;
+          document.getElementById('feature13.ReferenceFrame').innerText = value.referenceFrame;
+          document.getElementById('feature14.Direction').innerText = value.direction;
+          document.getElementById('feature15.Occlusion').innerText = value.occlusion ;
+          document.getElementById('feature16.SelectionTechnique').innerText = value.selectionTechnique;
+          document.getElementById('feature17.HoverIndication').innerText = value.hoverIndication;
+          document.getElementById('feature18.SelectionImmediacy').innerText = value.selectionImmediacy;
+          document.getElementById('feature19.LocomotionAlowed').innerText = value.locomotionAllowed;
+
 
           var button = document.getElementById('youtubeButton');
           var new_button = button.cloneNode(true);
