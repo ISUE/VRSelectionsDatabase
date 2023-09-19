@@ -22,18 +22,18 @@ CsvToHtmlTable = {
 
     $.when($.get(csv_path)).then(
       function (data) {
-        console.log(csv_path);
-        //console.log(data);  
         var csvData = $.csv.toArrays(data, csv_options);
         var $tableHead = $("<thead></thead>");
         var csvHeaderRow = csvData[0];
         var $tableHeadRow = $("<tr></tr>");
+
+        // Iterate through headers
         for (var headerIdx = 0; headerIdx < csvHeaderRow.length; headerIdx++) {
+
           if (headerIdx == 24 || headerIdx == 23 || headerIdx == 22 || headerIdx == 1 ||
             headerIdx == 18 || headerIdx == 19 || headerIdx == 20 || headerIdx == 21) {
             continue;
           }
-
           else {
             $tableHeadRow.append($("<th></th>").text(csvHeaderRow[headerIdx]));
           }
@@ -43,26 +43,39 @@ CsvToHtmlTable = {
         $table.append($tableHead);
         var $tableBody = $("<tbody></tbody>");
 
+        // Iterate through the rows
         for (var rowIdx = 1; rowIdx < csvData.length; rowIdx++) {
+          var skipRow = false;
           var $tableBodyRow = $("<tr></tr>");
+
           for (var colIdx = 0; colIdx < csvData[rowIdx].length; colIdx++) {
-            if (colIdx == 24 || colIdx == 23 || colIdx == 22 || colIdx == 1 || 
+
+            if (colIdx == 24 || colIdx == 23 || colIdx == 22 || colIdx == 1 ||
               colIdx == 18 || colIdx == 19 || colIdx == 20 || colIdx == 21) {
               continue;
-            }
+            } else {
+              let entryText = csvData[rowIdx][colIdx];
 
-            else {
+              // FOR FILTERING PURPOSES
+              let header = csvHeaderRow[colIdx];
+              for (const filterKey in filterList) {
+                // If filter is the same as header, and the filter has some values to ignore,
+                // then skip adding this row to the table
+                if (filterKey === header) {
+                  if (filterList[filterKey].includes(entryText)) {
+                    // console.log("Skipping row " + rowIdx + " because " + entryText + " is in the filter list for " + filterKey);
+                    skipRow = true;
+                  }
+                }
+              }
 
               var $tableBodyRowTd = $("<td></td>");
-              var cellTemplateFunc = customTemplates[colIdx];
-              if (cellTemplateFunc) {
-                $tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
-              } else {
-                $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
-              }
+              $tableBodyRowTd.text(entryText);
               $tableBodyRow.append($tableBodyRowTd);
-              $tableBody.append($tableBodyRow);
             }
+          }
+          if (!skipRow) {
+            $tableBody.append($tableBodyRow);
           }
         }
         $table.append($tableBody);

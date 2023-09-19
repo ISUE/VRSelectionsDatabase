@@ -7,6 +7,17 @@
 //     return parser.data;
 //   }
 
+var filterList = {
+  "Application": ["BONEWORKS"],
+  "Flat UI": ["3D"],
+  "Unique target": ["no"],
+  "Target distance": ["Extrapersonal", "Peripersonal"],
+  "Arrangement": ["random", "grid", "list"],
+}
+
+// TODO this overrides the filterList above, so no filters are applied by default
+// filterList = {}
+
 function readCSV() {
   var dataCSV = [];
 

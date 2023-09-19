@@ -86,6 +86,157 @@ function MakeScatter(csv_path = "./data.csv") {
       }
     })
 
+    // Filterable features and their names between CSV and JS code
+    // "Flat UI": ui
+    // "Speed vs Accuracy": speedAccuracy
+    // "Avg. num selectables in view": numSelectable
+    // "Max num selectables in view": maxNumSelectable
+    // "Unique target": uniqueTarget
+    // "Selectable size": size
+    // "Target distance": distance
+    // "Static or moving target": staticMoving
+    // "Arrangement": arrangement
+    // "Reference Frame": referenceFrame
+    // "Direction": direction
+    // "Occlusion": occlusion
+    // "Selection Technique": selectionTechnique
+    // "Hover feedback": hoverIndication
+    // "Feedback immediacy": selectionImmediacy
+    // "Locomotion allowed": locomotionAllowed
+
+    for (const filterKey in filterList) {
+      //   console.log("Filtering out " + filterValue + " from " + filterKey);
+      if (filterKey === "Flat UI") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.ui !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Speed vs Accuracy") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.speedAccuracy !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Avg. num selectables in view") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.numSelectable !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Max num selectables in view") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.maxNumSelectable !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Unique target") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.uniqueTarget !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Selectable size") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.size !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Target distance") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.distance !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Static or moving target") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.staticMoving !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Arrangement") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.arrangement !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Reference Frame") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.referenceFrame !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Direction") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.direction !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Occlusion") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.occlusion !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Selection Technique") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.selectionTechnique !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Hover feedback") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.hoverIndication !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Feedback immediacy") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.selectionImmediacy !== filterValue;
+          });
+        }
+      }
+
+      if (filterKey === "Locomotion allowed") {
+        for (const filterValue of filterList[filterKey]) {
+          data = data.filter(function (point) {
+            return point.locomotionAllowed !== filterValue;
+          });
+        }
+      }
+    }
+    // console.log(data);
+    // console.log("length of filtered data " + data.length);
+
     var scatterChartData = {
       datasets: [{
         label: 'My First dataset',
@@ -178,11 +329,11 @@ function MakeScatter(csv_path = "./data.csv") {
           var dataPoint = myScatter.getElementAtEvent(e);
 
           // print datapoint color
-          
+
           const datasetIndex = dataPoint[0]._datasetIndex;
           const itemIndex = dataPoint[0]._index;
           var value = myScatter.data.datasets[datasetIndex].data[itemIndex];
-          
+
           console.log(value.color);
           // console.log(value.link);
 
@@ -238,6 +389,6 @@ function handleNoiseToggleState(isChecked) {
 }
 
 // Attach event listener to the AddNoiseSwitch switch
-document.getElementById('AddNoiseSwitch').addEventListener('change', function() {
+document.getElementById('AddNoiseSwitch').addEventListener('change', function () {
   handleNoiseToggleState(this.checked);
 });
