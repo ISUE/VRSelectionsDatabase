@@ -271,7 +271,7 @@ function MakeScatter(csv_path = "./data_noise.csv") {
           fontSize: 14,
         },
         legend: {
-          display: false,
+          display: false, // TODO
         },
         scales: {
           xAxes: [{
