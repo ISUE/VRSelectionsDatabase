@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
   <title>VR Selections Interactive Data Visualizer</title>
-  
-  <link rel="icon" type="image/x-icon" href="fav.ico"/>
-  
+
+  <link rel="icon" type="image/x-icon" href="fav.ico" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -27,6 +26,7 @@
   <!-- Load PapaParse to read csv files -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 
+    <!-- font awesome logos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
@@ -167,55 +167,60 @@
     </div>
   </div>
 
-  <div style="display: flex; justify-content: left;">
-    
-    <!-- Leave some space on the left size of plot -->
-    <div style="width:30%; padding-left: 40px;">
-      <h3>What is this?</h3>
-      <ul>
+  <div>
+    <div style="display: flex; justify-content: left;">
 
-        <li>Attributes (features) of context in VR object selection scenarios were collected.</li>
-        <li>This t-SNE visualization was produced by converting the levels of all attributes to numbers, and
-          condensing them down to 2D.</li>
-        <li>Entries in the table below (scroll down) correspond to the points in scatter plot.</li>
+      <!-- Leave some space on the left size of plot -->
+      <div style="width:30%; padding-left: 40px;">
+        <h3>What is this?</h3>
+        <ul>
 
-      </ul>
+          <li>Attributes (features) of context in VR object selection scenarios were collected.</li>
+          <li>This t-SNE visualization was produced by converting the levels of all attributes to numbers, and
+            condensing them down to 2D.</li>
+          <li>Entries in the table below (scroll down) correspond to the points in scatter plot.</li>
+
+        </ul>
+      </div>
+
+      <div style="width:40%; height:40%; border: 1px solid #000; background-color: #fffffb;">
+        <!-- adjust the border width and color as needed -->
+        <canvas id="container" width="400" height="400"></canvas>
+      </div>
+
+
+      <!-- Instructions on the right side of plot -->
+      <div style="width:30%; padding-left: 40px;">
+
+        <br>
+        <h3>Visualizer Instructions</h3>
+        <ul>
+          <li>Click on individual points to see more information about a scenario</li>
+          <li>Click on the "Open Scatterplot Filters" button to open the filter menu</li>
+          <li>In the opened window, explore the attributes scenario attributes and click on the YouTube logo link that
+            takes you directly to the occurrence of the selection in an online video.</li>
+        </ul>
+
+        <br>
+        <h3>Table Instructions</h3>
+        <ul>
+          <li>The first time you click on a specific column header, the sorting direction is ascending order.
+            Click again, and the sorting direction will be descending order.</li>
+          <li>For custom filtering, type text into the search box above the table.</li>
+        </ul>
+
+      </div>
     </div>
-    
-    <!-- Scatterplot is inside this div -->
-    <div style="width:40%; height:40%;">
-      <canvas id="container" width="400" height="400"></canvas>
-    </div>
 
-    <!-- Instructions on the right side of plot -->
-    <div style="width:30%; padding-left: 40px;">
-
-      
-
-      <br>
-      <h3>Visualizer Instructions</h3>
-      <ul>
-        <li>Click on individual points to see more information about a scenario</li>
-        <li>Click on the "Open Scatterplot Filters" button to open the filter menu</li>
-        <li>In the opened window, explore the attributes scenario attributes and click on the YouTube logo link that
-          takes you directly to the occurrence of the selection in an online video.</li>
-      </ul>
-
-      <br>
-      <h3>Table Instructions</h3>
-      <ul>
-        <li>The first time you click on a specific column header, the sorting direction is ascending order.
-          Click again, and the sorting direction will be descending order.</li>
-        <li>For custom filtering, type text into the search box above the table.</li>
-      </ul>
-
-      <!-- Offcanvas filter menu might be removed since it's not fully completed, or disable interaction for the time being -->
+    <div style="display: flex; justify-content: center; align-items: center;">
       <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample">
+        aria-controls="offcanvasExample" style="margin-top: 20px;">
         Open Scatterplot Filters
       </button>
     </div>
+
   </div>
+
   <!-- Here are the import statements for the scripts used-->
   <script src="filterMenu.js"></script>
   <script src="script.js"></script>
@@ -224,7 +229,6 @@
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
-  <br>
 
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">

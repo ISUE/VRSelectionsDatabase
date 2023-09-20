@@ -7,7 +7,12 @@ CsvToHtmlTable = {
     var el = options.element || "table-container";
     var allow_download = options.allow_download || false;
     var csv_options = options.csv_options || {};
+    
+    // datatables options
     var datatables_options = options.datatables_options || {};
+    datatables_options.searching = false; // Disable search box
+    datatables_options.dom = 'ilfrtp';
+
     var custom_formatting = options.custom_formatting || [];
     var customTemplates = {};
     $.each(custom_formatting, function (i, v) {

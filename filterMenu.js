@@ -11,7 +11,7 @@ var includeAllEntries = {
   "Reference Frame": ["Environment", "Hand", "Head", "Torso"],
   "Direction": ["both", "center", "periphery"],
   "Occlusion": ["none", "minimal", "heavy"],
-  "Selection Technique": ["Point", "Shoot", "Grasp", "Catch", "Touch", "Press Virtual Button", "Release-to-select", "Manipulate", "Throw", "Push", "Cross", "Hover", "Model"],
+  "Selection Technique": ["Point", "Shoot", "Grasp", "Catch", "Touch", "Press Virtual Button", "Release-to-select", "Manipulate-to-select", "Throw", "Push", "Cross", "Hover", "Model"],
   "Hover feedback": ["no", "yes"],
   "Feedback immediacy": ["no", "yes"],
   "Locomotion allowed": ["no", "yes"],
@@ -28,6 +28,8 @@ function uncheckAllCheckboxes() {
 
   var collapsibles = document.querySelectorAll("[data-bs-toggle='collapse']");
   console.log("Count of collapsibles is " + collapsibles.length);
+
+  checkboxStates();
 }
 
 function checkboxStates() {
@@ -57,9 +59,6 @@ function checkboxStates() {
     if (checked.hasOwnProperty(key)) {
       var checkedValues = checked[key];
       var includeAllValues = includeAllEntries[key];
-      console.log(key);
-      console.log(key, checkedValues);
-      console.log(key, includeAllValues);
       var uncheckedValues = includeAllValues.filter(x => !checkedValues.includes(x));
       filterList[key] = uncheckedValues;
     }
