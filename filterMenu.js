@@ -1,12 +1,3 @@
-// function parseCSV(filePath) {
-//     var parser =
-//     Papa.parse(filePath, {
-//       header: true,
-//       dynamicTyping: true,
-//     });
-//     return parser.data;
-//   }
-
 var includeAllEntries = {
   "Flat UI": ["2D", "3D"],
   "Speed vs Accuracy": ["speed", "accuracy", "equal"],
@@ -25,13 +16,6 @@ var includeAllEntries = {
   "Feeback immediacy": ["no", "yes"],
 }
 
-// var filterList = {
-//   "Flat UI": ["3D"],
-//   "Unique target": ["no"],
-//   "Target distance": ["Extrapersonal", "Peripersonal"],
-//   "Arrangement": ["random", "grid", "list"],
-// }
-
 var filterList = {}
 
 function uncheckAllCheckboxes() {
@@ -49,21 +33,20 @@ function checkboxStates() {
   let checked = {};
 
   // Iterate over each parent container
-  $('.row').each(function() {
-      // let key = $(this).find('button').text().trim().replace(/\n/g, ' '); // Find button text for key
-      let key = $(this).find('button').text().trim().replace(/\s+/g, ' ');
+  $('.row').each(function () {
+    let key = $(this).find('button').text().trim().replace(/\s+/g, ' ');
 
-      let checkedValues = []; // List to store checked labels
+    let checkedValues = []; // List to store checked labels
 
-      // Iterate over checked checkboxes in the current container
-      $(this).find('.form-check-input:checked').each(function() {
-          // Get the corresponding label text and add to the list
-          checkedValues.push($(this).siblings('label').text().trim());
-      });
+    // Iterate over checked checkboxes in the current container
+    $(this).find('.form-check-input:checked').each(function () {
+      // Get the corresponding label text and add to the list
+      checkedValues.push($(this).siblings('label').text().trim());
+    });
 
-      if (checkedValues.length > 0) {
-          checked[key] = checkedValues;
-      }
+    if (checkedValues.length > 0) {
+      checked[key] = checkedValues;
+    }
   });
   console.log(checked);
 
@@ -80,9 +63,22 @@ function checkboxStates() {
     }
   }
 
-  console.log(filterList)
+  // console.log(filterList);
 
-  // TODO call the rendering of table and chart here
+  MakeScatter("./data_noise.csv");
+
+  CsvToHtmlTable.init({
+    csv_path: "data_noise.csv",
+    element: "table-container",
+    allow_download: false,
+    csv_options: {
+      separator: ",",
+      delimiter: '"'
+    },
+    datatables_options: {
+      paging: false
+    },
+  });
 
   return checked;
 }
