@@ -161,23 +161,30 @@
     </div>
   </div>
 
-  <!-- This where the Scatterplot will go -->
   <div style="display: flex; justify-content: left;">
-    <div style="width:40%; height:40%;">
-      <canvas id="container" width="400" height="400"></canvas>
-    </div>
-
-    <div style="width:60%; padding-left: 40px;">
-
-      <h3>Explanation</h3>
+    
+    <!-- Leave some space on the left size of plot -->
+    <div style="width:30%; padding-left: 40px;">
+      <h3>What is this?</h3>
       <ul>
 
         <li>Attributes (features) of context in VR object selection scenarios were collected.</li>
-        <li>This t-SNE visualization was produced by representing the levels of all attributes as numbers, and
+        <li>This t-SNE visualization was produced by converting the levels of all attributes to numbers, and
           condensing them down to 2D.</li>
         <li>Entries in the table below (scroll down) correspond to the points in scatter plot.</li>
 
       </ul>
+    </div>
+    
+    <!-- Scatterplot is inside this div -->
+    <div style="width:40%; height:40%;">
+      <canvas id="container" width="400" height="400"></canvas>
+    </div>
+
+    <!-- Instructions on the right side of plot -->
+    <div style="width:30%; padding-left: 40px;">
+
+      
 
       <br>
       <h3>Visualizer Instructions</h3>
