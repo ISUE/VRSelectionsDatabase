@@ -13,7 +13,8 @@ var includeAllEntries = {
   "Occlusion": ["none", "minimal", "heavy"],
   "Selection Technique": ["Point", "Shoot", "Grasp", "Catch", "Touch", "Press Virtual Button", "Release-to-select", "Manipulate", "Throw", "Push", "Cross", "Hover", "Model"],
   "Hover feedback": ["no", "yes"],
-  "Feeback immediacy": ["no", "yes"],
+  "Feedback immediacy": ["no", "yes"],
+  "Locomotion allowed": ["no", "yes"],
 }
 
 var filterList = {}
@@ -50,6 +51,7 @@ function checkboxStates() {
   });
   console.log(checked);
 
+  filterList = {};
   // Subtracts the checked values from the includeAllEntries values
   for (var key in includeAllEntries) {
     if (checked.hasOwnProperty(key)) {

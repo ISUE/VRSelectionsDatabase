@@ -27,11 +27,13 @@ CsvToHtmlTable = {
         var csvHeaderRow = csvData[0];
         var $tableHeadRow = $("<tr></tr>");
 
+        $tableHeadRow.append($("<th></th>").text('Video'));
+
         // Iterate through headers
         for (var headerIdx = 0; headerIdx < csvHeaderRow.length; headerIdx++) {
 
           if (headerIdx == 24 || headerIdx == 23 || headerIdx == 22 || headerIdx == 1 ||
-            headerIdx == 18 || headerIdx == 19 || headerIdx == 20 || headerIdx == 21) {
+            headerIdx == 19 || headerIdx == 20 || headerIdx == 21) {
             continue;
           }
           else {
@@ -48,22 +50,22 @@ CsvToHtmlTable = {
           var skipRow = false;
           var $tableBodyRow = $("<tr></tr>");
 
+          var $youtubeLink = csvData[rowIdx][1];
+          var $youtubeButton = $("<td><a href='" + $youtubeLink + "' target='_blank'><i class='fab fa-youtube' style='font-size: 24px; color: red;'></i></a></td>");
+
+          $tableBodyRow.append($youtubeButton);
+
           for (var colIdx = 0; colIdx < csvData[rowIdx].length; colIdx++) {
 
             if (colIdx == 24 || colIdx == 23 || colIdx == 22 || colIdx == 1 ||
-              colIdx == 18 || colIdx == 19 || colIdx == 20 || colIdx == 21) {
+              colIdx == 19 || colIdx == 20 || colIdx == 21) {
               continue;
             } else {
               let entryText = csvData[rowIdx][colIdx];
-
-              // FOR FILTERING PURPOSES
               let header = csvHeaderRow[colIdx];
               for (const filterKey in filterList) {
-                // If filter is the same as header, and the filter has some values to ignore,
-                // then skip adding this row to the table
                 if (filterKey === header) {
                   if (filterList[filterKey].includes(entryText)) {
-                    // console.log("Skipping row " + rowIdx + " because " + entryText + " is in the filter list for " + filterKey);
                     skipRow = true;
                   }
                 }
