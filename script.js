@@ -283,6 +283,7 @@ function MakeScatter(csv_path = "./data_noise.csv") {
               display: SHOW_GRID,
             },
             ticks: {
+              display: false,
               maxTicksLimit: 35,
               stepSize: 5,
               callback: function (value, index, values) {
@@ -299,6 +300,7 @@ function MakeScatter(csv_path = "./data_noise.csv") {
               display: SHOW_GRID,
             },
             ticks: {
+              display: false,
               maxTicksLimit: 10,
               stepSize: 10,
               callback: function (value, index, values) {
@@ -316,9 +318,12 @@ function MakeScatter(csv_path = "./data_noise.csv") {
               ]
             },
             label: function (tooltipItem, all) {
+              let item = all.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
               return [
-                X_AXIS + ': ' + POINT_X_PREFIX + tooltipItem.xLabel.toLocaleString() + POINT_X_POSTFIX,
-                Y_AXIS + ': ' + POINT_Y_PREFIX + tooltipItem.yLabel.toLocaleString() + POINT_Y_POSTFIX
+                item.selectionTechnique,
+                item.distance,
+                item.referenceFrame,
+                item.ui,
               ]
             }
           }
