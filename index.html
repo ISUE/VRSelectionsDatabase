@@ -98,7 +98,7 @@
                 <p class="text-dark bg-white" id='feature7.MaxNumSelectable'>-- </p>
               </div>
               <div class="col-2">
-                <p class="text-dark bg-white"><strong>Unique Targets?</strong></p>
+                <p class="text-dark bg-white"><strong>Unique Targets</strong></p>
                 <p class="text-dark bg-white" id='feature8.UniqueTarget'>-- </p>
               </div>
               <div class="col-2">
@@ -132,15 +132,15 @@
               </div>
 
               <div class="col-2">
-                <p class="text-dark bg-white"><strong>Hover Feedback?</strong></p>
+                <p class="text-dark bg-white"><strong>Hover Feedback</strong></p>
                 <p class="text-dark bg-white" id='feature17.HoverIndication'>-- </p>
               </div>
               <div class="col-2">
-                <p class="text-dark bg-white"><strong>Feedback Immediacy?</strong></p>
+                <p class="text-dark bg-white"><strong>Feedback Immediacy</strong></p>
                 <p class="text-dark bg-white" id='feature18.SelectionImmediacy'>-- </p>
               </div>
               <div class="col-2">
-                <p class="text-dark bg-white"><strong>Locomotion Allowed?</strong></p>
+                <p class="text-dark bg-white"><strong>Locomotion Allowed</strong></p>
                 <p class="text-dark bg-white" id='feature19.LocomotionAlowed'>-- </p>
               </div>
             </div>
@@ -176,12 +176,6 @@
         <li>This t-SNE visualization was produced by representing the levels of all attributes as numbers, and
           condensing them down to 2D.</li>
         <li>Entries in the table below (scroll down) correspond to the points in scatter plot.</li>
-        <li>To make the data easier to visualize by adding noise, check this box:
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="AddNoiseSwitch">
-            <label class="custom-control-label" for="AddNoiseSwitch">Visualize with noise</label>
-          </div>
-        </li>
 
       </ul>
 
@@ -210,8 +204,8 @@
     </div>
   </div>
   <!-- Here are the import statements for the scripts used-->
-  <script src="script.js"></script>
   <script src="filterMenu.js"></script>
+  <script src="script.js"></script>
   <script src="csv_to_html_table.js"></script>
   <script src="jquery.csv.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -240,13 +234,13 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT1C1">
                 <label class="form-check-label" for="CheckT1C1">
-                  Yes
+                  2D
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT1C2">
                 <label class="form-check-label" for="CheckT1C2">
-                  No
+                  3D
                 </label>
               </div>
             </div>
@@ -255,24 +249,24 @@
 
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab2">Speed
-              vs. Accuracy</button>
+              vs Accuracy</button>
             <div id="collapseTab2" class="collapse multi-collapse">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT2C1">
                 <label class="form-check-label" for="CheckT2C1">
-                  Equal
+                  equal
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT2C2">
                 <label class="form-check-label" for="CheckT2C2">
-                  Speed
+                  speed
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT2C3">
                 <label class="form-check-label" for="CheckT2C3">
-                  Accuracy
+                  accuracy
                 </label>
               </div>
             </div>
@@ -281,7 +275,7 @@
 
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab3">Avg.
-              Num Selectables in View</button>
+              num selectables in view</button>
             <div id="collapseTab3" class="collapse multi-collapse">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT3C1">
@@ -312,8 +306,14 @@
           <br>
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab4">Max
-              Num Selectables in View</button>
+              num selectables in view</button>
             <div id="collapseTab4" class="collapse multi-collapse">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="Check4C4">
+                <label class="form-check-label" for="CheckT4C4">
+                  1-2
+                </label>
+              </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT4C1">
                 <label class="form-check-label" for="CheckT4C1">
@@ -332,29 +332,23 @@
                   20+
                 </label>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="Check4C4">
-                <label class="form-check-label" for="CheckT4C4">
-                  1-2
-                </label>
-              </div>
             </div>
           </div>
           <br>
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse"
-              data-bs-target="#collapseTab5">Unique Target</button>
+              data-bs-target="#collapseTab5">Unique target</button>
             <div id="collapseTab5" class="collapse multi-collapse">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT5C1">
                 <label class="form-check-label" for="CheckT5C1">
-                  Yes
+                  yes
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT5C2">
                 <label class="form-check-label" for="CheckT5C2">
-                  No
+                  no
                 </label>
               </div>
             </div>
@@ -362,30 +356,30 @@
           <br>
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse"
-              data-bs-target="#collapseTab6">Selectable Size</button>
+              data-bs-target="#collapseTab6">Selectable size</button>
             <div id="collapseTab6" class="collapse">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT6C1">
                 <label class="form-check-label" for="CheckT6C1">
-                  Tiny
+                  tiny
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT6C2">
                 <label class="form-check-label" for="CheckT6C2">
-                  Small
+                  small
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT6C3">
                 <label class="form-check-label" for="CheckT3C3">
-                  Medium
+                  medium
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT6C4">
                 <label class="form-check-label" for="CheckT6C4">
-                  Large
+                  large
                 </label>
               </div>
             </div>
@@ -393,7 +387,7 @@
           <br>
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse"
-              data-bs-target="#collapseTab7">Target Distance</button>
+              data-bs-target="#collapseTab7">Target distance</button>
             <div id="collapseTab7" class="collapse multi-collapse">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT7C1">
@@ -418,24 +412,24 @@
           <br>
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse"
-              data-bs-target="#collapseTab8">Static or Moving Target</button>
+              data-bs-target="#collapseTab8">Static or moving target</button>
             <div id="collapseTab8" class="collapse multi-collapse">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT8C1">
                 <label class="form-check-label" for="CheckT8C1">
-                  Static
+                  static
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT8C2">
                 <label class="form-check-label" for="CheckT8C2">
-                  Moving
+                  moving
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT8C3">
                 <label class="form-check-label" for="CheckT8C3">
-                  Both
+                  both
                 </label>
               </div>
             </div>
@@ -448,25 +442,25 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT9C1">
                 <label class="form-check-label" for="CheckT9C1">
-                  Random
+                  random
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT9C2">
                 <label class="form-check-label" for="CheckT9C2">
-                  List
+                  list
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT9C3">
                 <label class="form-check-label" for="CheckT9C3">
-                  Circular
+                  circular
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT9C4">
                 <label class="form-check-label" for="CheckT9C4">
-                  Grid
+                  grid
                 </label>
               </div>
             </div>
@@ -497,7 +491,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT10C4">
                 <label class="form-check-label" for="CheckT10C4">
-                  Body
+                  Torso
                 </label>
               </div>
             </div>
@@ -510,19 +504,19 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT11C1">
                 <label class="form-check-label" for="CheckT11C1">
-                  Center
+                  center
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT11C2">
                 <label class="form-check-label" for="CheckT11C2">
-                  Periphery
+                  periphery
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT11C3">
                 <label class="form-check-label" for="CheckT11C3">
-                  Both
+                  both
                 </label>
               </div>
             </div>
@@ -535,19 +529,19 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT12C1">
                 <label class="form-check-label" for="CheckT12C1">
-                  None
+                  none
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT12C2">
                 <label class="form-check-label" for="CheckT12C2">
-                  Minimal
+                  minimal
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT12C3">
                 <label class="form-check-label" for="CheckT12C3">
-                  Heavy
+                  heavy
                 </label>
               </div>
             </div>
@@ -565,44 +559,74 @@
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT13C2">
-                <label class="form-check-label" for="CheckT13C2">
-                  Grasp
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="CheckT13C3">
-                <label class="form-check-label" for="CheckT13C3">
-                  Touch
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="CheckT13C4">
                 <label class="form-check-label" for="CheckT13C4">
                   Shoot
                 </label>
               </div>
               <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="CheckT13C3">
+                <label class="form-check-label" for="CheckT13C2">
+                  Grasp
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="CheckT13C4">
+                <label class="form-check-label" for="CheckT13C8">
+                  Catch
+                </label>
+              </div>
+              <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT13C5">
-                <label class="form-check-label" for="CheckT13C5">
-                  Throw
+                <label class="form-check-label" for="CheckT13C3">
+                  Touch
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT13C6">
-                <label class="form-check-label" for="CheckT13C6">
-                  Cross
+                <label class="form-check-label" for="CheckT13C5">
+                  Press Virtual Button
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT13C7">
-                <label class="form-check-label" for="CheckT13C7">
-                  Push
+                <label class="form-check-label" for="CheckT13C6">
+                  Release-to-select
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT13C8">
-                <label class="form-check-label" for="CheckT13C8">
+                <label class="form-check-label" for="CheckT13C7">
                   Manipulate
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="CheckT13C9">
+                <label class="form-check-label" for="CheckT13C8">
+                  Throw
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="CheckT13C10">
+                <label class="form-check-label" for="CheckT13C8">
+                  Push
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="CheckT13C11">
+                <label class="form-check-label" for="CheckT13C8">
+                  Cross
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="CheckT13C12">
+                <label class="form-check-label" for="CheckT13C8">
+                  Hover
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="CheckT13C13">
+                <label class="form-check-label" for="CheckT13C8">
+                  Model
                 </label>
               </div>
             </div>
@@ -610,18 +634,18 @@
           <br>
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse"
-              data-bs-target="#collapseTab14">Hover Feedback</button>
+              data-bs-target="#collapseTab14">Hover feedback</button>
             <div id="collapseTab14" class="collapse multi-collapse">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT14C1">
                 <label class="form-check-label" for="CheckT14C1">
-                  Yes
+                  yes
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT14C2">
                 <label class="form-check-label" for="CheckT14C2">
-                  No
+                  no
                 </label>
               </div>
             </div>
@@ -629,18 +653,18 @@
           <br>
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse"
-              data-bs-target="#collapseTab15">Feedback Immediacy</button>
+              data-bs-target="#collapseTab15">Feedback immediacy</button>
             <div id="collapseTab15" class="collapse multi-collapse">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT15C1">
                 <label class="form-check-label" for="CheckT15C1">
-                  Yes
+                  yes
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT15C2">
                 <label class="form-check-label" for="CheckT15C2">
-                  No
+                  no
                 </label>
               </div>
             </div>
@@ -648,18 +672,18 @@
           <br>
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse"
-              data-bs-target="#collapseTab16">Locomotion Allowed</button>
+              data-bs-target="#collapseTab16">Locomotion allowed</button>
             <div id="collapseTab16" class="collapse multi-collapse">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT16C1">
                 <label class="form-check-label" for="CheckT16C1">
-                  Yes
+                  yes
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT16C2">
                 <label class="form-check-label" for="CheckT16C2">
-                  No
+                  no
                 </label>
               </div>
             </div>
@@ -675,7 +699,7 @@
                     -->
 
             <!-- TODO: These two buttons will be used to manipulate the view of the scatterplot once filters have been applied or to reset the view-->
-            <button id="applyFiltersButton" class="btn btn-primary" onclick="readCSV()">Apply Filters</button>
+            <button id="applyFiltersButton" class="btn btn-primary" onclick="checkboxStates()">Apply Filters</button>
           </div>
           <div class="col">
             <button id="clearFiltersButton" class="btn btn-danger" onclick="uncheckAllCheckboxes()">Clear
@@ -708,7 +732,7 @@
     }
 
     CsvToHtmlTable.init({
-      csv_path: "data.csv",
+      csv_path: "data_noise.csv",
       element: "table-container",
       allow_download: false,
       csv_options: {

@@ -7,7 +7,7 @@
 
 var myScatter;
 
-function MakeScatter(csv_path = "./data.csv") {
+function MakeScatter(csv_path = "./data_noise.csv") {
 
   var TITLE = 'Object selection scenarios in VR (t-SNE Feature Space)';
   var POINT_X = 'X'; // column name for x values in data.csv
@@ -379,16 +379,16 @@ function MakeScatter(csv_path = "./data.csv") {
   });
 }
 
-$(document).ready(MakeScatter("./data.csv"));
+$(document).ready(MakeScatter("./data_noise.csv"));
 
-// Function to be called with the state of the toggle
-function handleNoiseToggleState(isChecked) {
-  console.log("Noise Toggle is: ", isChecked ? "ON" : "OFF");
-  if (isChecked) { MakeScatter("./data_noise.csv"); }
-  else { MakeScatter(); }
-}
+// // Function to be called with the state of the toggle
+// function handleNoiseToggleState(isChecked) {
+//   console.log("Noise Toggle is: ", isChecked ? "ON" : "OFF");
+//   if (isChecked) { MakeScatter("./data_noise.csv"); }
+//   else { MakeScatter(); }
+// }
 
-// Attach event listener to the AddNoiseSwitch switch
-document.getElementById('AddNoiseSwitch').addEventListener('change', function () {
-  handleNoiseToggleState(this.checked);
-});
+// // Attach event listener to the AddNoiseSwitch switch
+// document.getElementById('AddNoiseSwitch').addEventListener('change', function () {
+//   handleNoiseToggleState(this.checked);
+// });

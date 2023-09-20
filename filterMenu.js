@@ -7,55 +7,32 @@
 //     return parser.data;
 //   }
 
-var filterList = {
-  "Application": ["BONEWORKS"],
-  "Flat UI": ["3D"],
-  "Unique target": ["no"],
-  "Target distance": ["Extrapersonal", "Peripersonal"],
-  "Arrangement": ["random", "grid", "list"],
+var includeAllEntries = {
+  "Flat UI": ["2D", "3D"],
+  "Speed vs Accuracy": ["speed", "accuracy", "equal"],
+  "Avg. num selectables in view": ["1-2", "3-9", "10-19", "20+"],
+  "Max num selectables in view": ["1-2", "3-9", "10-19", "20+"],
+  "Unique target": ["no", "yes"],
+  "Selectable size": ["tiny", "small", "medium", "large"],
+  "Target distance": ["Extrapersonal", "Peripersonal", "On-body"],
+  "Static or moving target": ["static", "moving", "both"],
+  "Arrangement": ["random", "grid", "list", "circular"],
+  "Reference Frame": ["Environment", "Hand", "Head", "Torso"],
+  "Direction": ["both", "center", "periphery"],
+  "Occlusion": ["none", "minimal", "heavy"],
+  "Selection Technique": ["Point", "Shoot", "Grasp", "Catch", "Touch", "Press Virtual Button", "Release-to-select", "Manipulate", "Throw", "Push", "Cross", "Hover", "Model"],
+  "Hover feedback": ["no", "yes"],
+  "Feeback immediacy": ["no", "yes"],
 }
 
-// TODO this overrides the filterList above, so no filters are applied by default
-// filterList = {}
+// var filterList = {
+//   "Flat UI": ["3D"],
+//   "Unique target": ["no"],
+//   "Target distance": ["Extrapersonal", "Peripersonal"],
+//   "Arrangement": ["random", "grid", "list"],
+// }
 
-function readCSV() {
-  var dataCSV = [];
-
-  var reader = new FileReader();
-  reader.onload = function () {
-    var csvData = reader.result;
-    var lines = csvData.split("\n");
-
-    for (var line of lines) {
-      var row = line.split(",");
-      dataCSV.push(row);
-    }
-  };
-
-  reader.readAsText('./with_colors.csv');
-  return dataCSV
-}
-
-function previewFile() {
-  const content = document.querySelector(".content");
-  const [file] = document.querySelector("input[type=file]").files;
-  const reader = new FileReader();
-
-  reader.addEventListener(
-    "load",
-    () => {
-      // this will then display a text file
-      //content.innerText = reader.result;
-      console.log(typeof (reader.result));
-    },
-    false,
-  );
-
-  if (file) {
-    reader.readAsText(file);
-    console.log(reader.result)
-  }
-}
+var filterList = {}
 
 function uncheckAllCheckboxes() {
   var checkboxes = document.querySelectorAll("input[type='checkbox']");
@@ -66,63 +43,46 @@ function uncheckAllCheckboxes() {
 
   var collapsibles = document.querySelectorAll("[data-bs-toggle='collapse']");
   console.log("Count of collapsibles is " + collapsibles.length);
-
 }
 
 function checkboxStates() {
-  var checkboxes = document.querySelectorAll("input[type='checkbox']");
-  var cbLabels = document.querySelectorAll("label");
+  let checked = {};
 
-  var checkedCheckboxes = [];
-  var labelValues = [];
+  // Iterate over each parent container
+  $('.row').each(function() {
+      // let key = $(this).find('button').text().trim().replace(/\n/g, ' '); // Find button text for key
+      let key = $(this).find('button').text().trim().replace(/\s+/g, ' ');
 
-  for (var i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      checkedCheckboxes.push(checkboxes[i].value);
-      labelValues.push(cbLabels[i].innerHTML.trim().replace(/&nbsp;/g, ''));
-    }
-  }
+      let checkedValues = []; // List to store checked labels
 
-  console.log(checkedCheckboxes);
-  console.log(labelValues);
-}
+      // Iterate over checked checkboxes in the current container
+      $(this).find('.form-check-input:checked').each(function() {
+          // Get the corresponding label text and add to the list
+          checkedValues.push($(this).siblings('label').text().trim());
+      });
 
-// Function runs on chart type select update
-function updateChartTypeA() {
-  // Default chart defined with type: 'line'
-  var ctx = document.getElementById('my_Chart').getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'scatter',
-    data: myData
-  });
-
-  // here we destroy/delete the old or previous chart and redraw it again
-  myChart.destroy();
-  myChart = new Chart(ctx, {
-    type: document.getElementById("chartType").value,
-    data: myData,
-  });
-
-};
-
-// Function runs on chart type select update
-function updateChartTypeB() {
-  myChart.update();
-};
-
-function filterRows(data, criteria) {
-  var filteredData = [];
-  for (var row of data) {
-    var matches = true;
-    for (var criterion of criteria) {
-      if (!row[criterion]) {
-        matches = false;
-        break;
+      if (checkedValues.length > 0) {
+          checked[key] = checkedValues;
       }
-    }
-    if (matches) {
-      filteredData.push(row);
+  });
+  console.log(checked);
+
+  // Subtracts the checked values from the includeAllEntries values
+  for (var key in includeAllEntries) {
+    if (checked.hasOwnProperty(key)) {
+      var checkedValues = checked[key];
+      var includeAllValues = includeAllEntries[key];
+      console.log(key);
+      console.log(key, checkedValues);
+      console.log(key, includeAllValues);
+      var uncheckedValues = includeAllValues.filter(x => !checkedValues.includes(x));
+      filterList[key] = uncheckedValues;
     }
   }
-  return filteredData;
+
+  console.log(filterList)
+
+  // TODO call the rendering of table and chart here
+
+  return checked;
 }
