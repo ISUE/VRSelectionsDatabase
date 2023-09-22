@@ -371,12 +371,7 @@ function MakeScatter(csv_path = "./data_noise.csv") {
             window.open(youtubeLink, "_blank");
           });
 
-
           dataPointModal.toggle();
-
-
-          // Do something with the data point, such as displaying more information about it or opening a new page
-          //alert("You clicked on the point with x = " + dataPoint.x+ " and y = " + dataPoint.y);
         }
       }
     });
@@ -386,14 +381,19 @@ function MakeScatter(csv_path = "./data_noise.csv") {
 
 $(document).ready(MakeScatter("./data_noise.csv"));
 
-// // Function to be called with the state of the toggle
-// function handleNoiseToggleState(isChecked) {
-//   console.log("Noise Toggle is: ", isChecked ? "ON" : "OFF");
-//   if (isChecked) { MakeScatter("./data_noise.csv"); }
-//   else { MakeScatter(); }
-// }
 
-// // Attach event listener to the AddNoiseSwitch switch
-// document.getElementById('AddNoiseSwitch').addEventListener('change', function () {
-//   handleNoiseToggleState(this.checked);
-// });
+window.onscroll = function() {
+  var button = document.getElementById("scrollToTop");
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      button.style.display = "block";
+  } else {
+      button.style.display = "none";
+  }
+}
+
+function scrollToTop() {
+  window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+  });
+}

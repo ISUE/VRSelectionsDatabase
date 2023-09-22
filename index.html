@@ -29,6 +29,9 @@
   <!-- font awesome logos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+  <!-- Stylesheet from index.css -->
+  <link rel="stylesheet" href="index.css">
+
 </head>
 
 <!-- This Body tag will contain the entire content of the page -->
@@ -177,13 +180,15 @@
     <div style="display: flex; justify-content: left;">
 
       <!-- Leave some space on the left size of plot -->
-      <div style="width:30%; padding-left: 40px;">
+      <div style="width:30%; padding: 0px 20px 0px 20px">
         <h3>What is this?</h3>
         <ul>
 
-          <li>Attributes (features) of context in VR object selection scenarios were collected.</li>
-          <li>This t-SNE visualization was produced by converting the levels of all attributes to numbers, and
-            condensing them down to 2D.</li>
+          <li>A dataset of scenarios where VR selections occur</li>
+          <li>Context attributes (features) in VR object selection scenarios were collected.</li>
+          <li>Visualization was produced by converting the levels of all attributes to numbers, and
+            condensing them down to 2 axes using <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">t-SNE</a>.</li>
           <li>Entries in the table below (scroll down) correspond to the points in scatter plot.</li>
 
         </ul>
@@ -194,17 +199,17 @@
         <canvas id="container" width="400" height="400"></canvas>
       </div>
 
-
       <!-- Instructions on the right side of plot -->
-      <div style="width:30%; padding-left: 40px;">
+      <div style="width:30%; padding: 0px 20px 0px 20px;">
 
         <br>
         <h3>Visualizer Instructions</h3>
         <ul>
-          <li>Click on individual points to see more information about a scenario</li>
-          <li>Click on the "Open Scatterplot Filters" button to open the filter menu</li>
+          <li>Click on individual points to see more information about a scenario.</li>
           <li>In the opened window, explore the attributes scenario attributes and click on the YouTube logo link that
             takes you directly to the occurrence of the selection in an online video.</li>
+          <li>Click on the "Open Scatterplot Filters" button to open the filter menu. Check the boxes of attributes that
+            you want to limit your search to.</li>
         </ul>
 
         <br>
@@ -212,14 +217,14 @@
         <ul>
           <li>The first time you click on a specific column header, the sorting direction is ascending order.
             Click again, and the sorting direction will be descending order.</li>
-          <li>For custom filtering, type text into the search box above the table.</li>
+          <li>Use CTRL+F to search within the page (and the table).</li>
         </ul>
 
       </div>
     </div>
 
     <div style="display: flex; justify-content: center; align-items: center;">
-      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+      <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
         aria-controls="offcanvasExample" style="margin-top: 20px;">
         Open Scatterplot Filters
       </button>
@@ -242,7 +247,7 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <div>
+      <div class="container">
         <p> Using these buttons below, you can open up various categories to alter the data displayed on the
           Scatterplot. </p>
         <p>You MUST click the "Apply Filters" button to see any changes. Also, you can reset the filters with the "Clear
@@ -269,7 +274,6 @@
             </div>
           </div>
           <br>
-
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab2">Speed
               vs Accuracy</button>
@@ -295,7 +299,6 @@
             </div>
           </div>
           <br>
-
           <div class="row">
             <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab3">Avg.
               num selectables in view</button>
@@ -619,7 +622,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT13C8">
                 <label class="form-check-label" for="CheckT13C7">
-                  Manipulate
+                  Manipulate-to-select
                 </label>
               </div>
               <div class="form-check">
@@ -716,12 +719,6 @@
         <br>
         <div class="row">
           <div class="col">
-            <!--
-
-                      <button id="applyFiltersButton" class="btn btn-primary" onclick="checkboxStates()">Apply Filters</button>
-                    -->
-
-            <!-- TODO: These two buttons will be used to manipulate the view of the scatterplot once filters have been applied or to reset the view-->
             <button id="applyFiltersButton" class="btn btn-primary" onclick="checkboxStates()">Apply Filters</button>
           </div>
           <div class="col">
@@ -774,6 +771,8 @@
   <footer>
     <p class="text-center">This webpage was made for data visualization purposes.</p>
   </footer>
+
+  <button id="scrollToTop" onclick="scrollToTop()" style="display: none;">Scroll Up</button>
 
 </body>
 
