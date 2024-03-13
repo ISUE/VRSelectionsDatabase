@@ -1,20 +1,12 @@
 var includeAllEntries = {
-  "Flat UI": ["2D", "3D"],
-  "Speed vs Accuracy": ["speed", "accuracy", "equal"],
-  "Avg. num selectables in view": ["1-2", "3-9", "10-19", "20+"],
-  "Max num selectables in view": ["1-2", "3-9", "10-19", "20+"],
-  "Unique target": ["no", "yes"],
-  "Selectable size": ["tiny", "small", "medium", "large"],
-  "Target distance": ["Extrapersonal", "Peripersonal", "On-body"],
-  "Static or moving target": ["static", "moving", "both"],
-  "Arrangement": ["random", "grid", "list", "circular"],
-  "Reference Frame": ["Environment", "Hand", "Head", "Torso"],
-  "Direction": ["both", "center", "periphery"],
-  "Occlusion": ["none", "minimal", "heavy"],
-  "Selection Technique": ["Point", "Shoot", "Grasp", "Catch", "Touch", "Press Virtual Button", "Release-to-select", "Manipulate-to-select", "Throw", "Push", "Cross", "Hover", "Model"],
-  "Hover feedback": ["no", "yes"],
-  "Feedback immediacy": ["no", "yes"],
-  "Locomotion allowed": ["no", "yes"],
+  "Dimensions": ["2D", "3D"],
+  "Reference Frame": ["Environment", "Hand", "Torso", "Head"],
+  "Proximity": ["Peripersonal", "Extrapersonal", "On-Body"],
+  "Interactable": ["3D Object", "UI Element", "Avatar", "Storage unit", "Discrete configuration"],
+  "Interactor": ["Ray - Visible", "Ray - Invisible", "Ray - 2D Cursor", "Virtual hand", "Handheld object"],
+  "Indication": ["Pointing - Hand ray", "Pointing - Head gaze", "Intersecting", "Aiming - Shooting", "Aiming - Throwing", "Discrete manipulation", "Enclosing"],
+  "Confirmation": ["Analog - Click", "Analog - Hold", "Analog - Release", "Hand Tracking - Click gesture", "Hand Tracking - Hold gesture", "Hand Tracking - Release gesture", "Press-in motion", "Dwell", "Automatic"],
+  "Outcome": ["Acquisition", "System control"]
 }
 
 var filterList = {}

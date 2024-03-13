@@ -37,8 +37,7 @@ CsvToHtmlTable = {
         // Iterate through headers
         for (var headerIdx = 0; headerIdx < csvHeaderRow.length; headerIdx++) {
 
-          if (headerIdx == 24 || headerIdx == 23 || headerIdx == 22 || headerIdx == 1 ||
-            headerIdx == 19 || headerIdx == 20 || headerIdx == 21) {
+          if (headerIdx == 1) {
             continue;
           }
           else {
