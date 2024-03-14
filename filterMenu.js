@@ -2,10 +2,10 @@ var includeAllEntries = {
   "Dimensions": ["2D", "3D"],
   "Reference Frame": ["Environment", "Hand", "Torso", "Head"],
   "Proximity": ["Peripersonal", "Extrapersonal", "On-Body"],
-  "Interactable": ["3D Object", "UI Element", "Avatar", "Storage unit", "Discrete configuration"],
+  "Target Type": ["3D Object", "UI Element", "Avatar", "Storage unit", "Discrete configuration"],
   "Interactor": ["Ray - Visible", "Ray - Invisible", "Ray - 2D Cursor", "Virtual hand", "Handheld object"],
   "Indication": ["Pointing - Hand ray", "Pointing - Head gaze", "Intersecting", "Aiming - Shooting", "Aiming - Throwing", "Discrete manipulation", "Enclosing"],
-  "Confirmation": ["Analog - Click", "Analog - Hold", "Analog - Release", "Hand Tracking - Click gesture", "Hand Tracking - Hold gesture", "Hand Tracking - Release gesture", "Press-in motion", "Dwell", "Automatic"],
+  "Confirmation": ["Analog - Click", "Analog - Continued Press", "Analog - Release", "Hand Tracking - Click gesture", "Hand Tracking - Hold gesture", "Hand Tracking - Release gesture", "Press-in motion", "Dwell", "Automatic"],
   "Outcome": ["Acquisition", "System control"]
 }
 

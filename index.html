@@ -45,90 +45,32 @@
   </header>
 
   <div>
-    <div style="display: flex; justify-content: left;">
-
-      <!-- Leave some space on the left size of plot -->
-      <div style="width:30%; padding: 0px 20px 0px 20px">
+    <div style="display: flex;  justify-content: center; align-items: center;">
+      
+      <!-- <div style="width:30%; padding: 0px 20px 0px 20px"> -->
+      <div class="info-section">
         <h3>What is this?</h3>
         <ul>
-
           <li>A dataset of scenarios where VR selections occur</li>
           <li>Context attributes (features) in VR object selection scenarios were collected.</li>
           <li style="color:red; font-weight: bold">Please press key combination CTRL+SHIFT+R to reload the website fully.</li>
-          <!-- <li>Visualization was produced by converting the levels of all attributes to numbers, and
-            condensing them down to 2 axes using <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">t-SNE</a>.</li> -->
-          <!-- <li>Entries in the table below (scroll down) correspond to the points in scatter plot.</li> -->
-
         </ul>
-
-        <!-- <div>
-          <h4>Legend</h4>
-          <div class="chart-legend">
-            <div class="legend-item">
-              <span class="color-box" style="background-color: Red;"></span> Point
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: Gold;"></span> Shoot
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: Green;"></span> Grasp
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: DarkOrange;"></span> Catch
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: Tomato;"></span> Touch
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: LimeGreen;"></span> Press Virtual Button
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: Blue;"></span> Release-to-select
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: MediumPurple;"></span> Manipulate-to-select
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: DeepSkyBlue;"></span> Throw
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: Olive;"></span> Push
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: Chocolate;"></span> Cross
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: DarkTurquoise;"></span> Hover
-            </div>
-            <div class="legend-item">
-              <span class="color-box" style="background-color: SlateBlue;"></span> Model
-            </div>
-          </div>
-        </div> -->
       </div>
 
-      <!-- Instructions on the right side of plot -->
-      <!-- <div style="width:30%; padding: 0px 20px 0px 20px;">
-        <h3>Visualizer Instructions</h3>
-        <ul>
-          <li>Click on individual points to see more information about a scenario.</li>
-          <li>In the opened window, explore the attributes scenario attributes and click on the YouTube logo link that
-            takes you directly to the occurrence of the selection in an online video.</li>
-          <li>Click on the "Open Scatterplot Filters" button to open the filter menu. Check the boxes of attributes that
-            you want to limit your search to.</li>
-        </ul>
-      </div> -->
+      <div>
+        <!-- Image scaled to take up 40% of the width of the view -->
+        <img src="webscreen.png" alt="Scatterplot" style="width: 100%; flex-grow: 1;">
+      </div>
 
-      <div style="width:30%; padding: 0px 20px 0px 20px;">
+      <div class="info-section">
         <h3>Table Instructions</h3>
         <ul>
           <li>The first time you click on a specific column header, the sorting direction is ascending order.
             Click again, and the sorting direction will be descending order.</li>
           <li>Use CTRL+F to search within the page (and the table).</li>
         </ul>
-
       </div>
+    
     </div>
 
     <div style="display: flex; justify-content: center; align-items: center;">
@@ -236,7 +178,7 @@
           </div>
           <br>
           <div class="row">
-            <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab4">Interactable</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTab4">Target Type</button>
             <div id="collapseTab4" class="collapse multi-collapse">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="Check4C1">
@@ -370,7 +312,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="CheckT7C2">
                 <label class="form-check-label" for="CheckT7C2">
-                  Analog - Hold
+                  Analog - Continued Press
                 </label>
               </div>
               <div class="form-check">
