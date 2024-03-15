@@ -57,13 +57,12 @@
 <body>
   <header class="bg-light" style="padding: 5px 0px 5px 20px; display: flex; align-items: center;">
     <img src="fav.ico" alt="Logo" style="margin-right: 15px; height: 50px; width: 50px;">
-    <h1>Interactive VR Object Selection Attributes Visualizer</h1>
+    <h1>Interactive Visualizer for Object Selection in Consumer VR Applications</h1>
   </header>
 
-  <div>
-    <div style="display: flex;  justify-content: center; align-items: center;">
-      
-      <!-- <div style="width:30%; padding: 0px 20px 0px 20px"> -->
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 0px 8% 0 8%;">
+    
+    <div class="text-sections" style="display: flex; flex-direction: column; max-width: 48.5%; margin: 20px 20px 0px 20px; background-color: #F7F9FA; padding: 20px;">
       <div class="info-section">
         <h3>What is this?</h3>
         <ul>
@@ -72,31 +71,31 @@
           <li style="color:red; font-weight: bold">Please press key combination CTRL+SHIFT+R to reload the website fully.</li>
         </ul>
       </div>
-
-      <div>
-        <!-- Image scaled to take up 40% of the width of the view -->
-        <img src="webscreen.png" alt="Scatterplot" style="width: 100%; flex-grow: 1;">
-      </div>
-
+      
       <div class="info-section">
         <h3>Table Instructions</h3>
         <ul>
-          <li>The first time you click on a specific column header, the sorting direction is ascending order.
-            Click again, and the sorting direction will be descending order.</li>
+          <li>The first time you click on a specific column header, the sorting direction is ascending order. Click again, and the sorting direction will be descending order.</li>
           <li>Use CTRL+F to search within the page (and the table).</li>
         </ul>
       </div>
-    
+
+      <!-- <div style="display: flex; justify-content: center;"> -->
+      <div style="display: flex; justify-content: center; margin-top: auto;">
+        <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample" style="margin-top: 20px; max-width: 15vw; width: 100%;">
+          Open Filters
+        </button>
+      </div>
+
     </div>
 
-    <div style="display: flex; justify-content: center; align-items: center;">
-      <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample" style="margin-top: 20px;">
-        Open Filters
-      </button>
+    <div class="image-section" style="flex-grow: 1; flex-basis: calc(40% - 20px); margin: 20px 20px 0px 20px;">
+      <img src="webscreen.png" alt="Scatterplot" style="width: 100%; height: auto;">
     </div>
 
   </div>
+
 
   <!-- Here are the import statements for the scripts used-->
   <script src="filterMenu.js"></script>
@@ -412,13 +411,11 @@
 
   <br>
 
-  <!-- This is where the Filterable Table using JQuery will be detailed-->
-  
-
-  <div style="padding: 0 1%; margin: 0 auto;">
-    <div class="bg-light" style="padding: 5px 0px 5px 20px;">
-      <h2>Filterable Sorted Table: Sortable columns to narrow your results.</h2>
+  <div style="margin: 0 auto;">
+    <div class="bg-light" style="padding: 5px 0px 5px 20px; display: flex; justify-content: center;">
+      <h2>Database Entries</h2>
     </div>
+    <!-- This is where the Filterable Table using JQuery will be detailed-->
     <div id="table-container" style="width: 100%;"></div>
   </div>
   
