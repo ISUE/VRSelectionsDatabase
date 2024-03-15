@@ -55,10 +55,6 @@
 </head>
 
 <body>
-  <!-- <header class="bg-light" style="padding: 5px 0px 5px 20px;">
-    <h1>Interactive VR Object Selection Attributes Visualizer</h1>
-  </header> -->
-
   <header class="bg-light" style="padding: 5px 0px 5px 20px; display: flex; align-items: center;">
     <img src="fav.ico" alt="Logo" style="margin-right: 15px; height: 50px; width: 50px;">
     <h1>Interactive VR Object Selection Attributes Visualizer</h1>
@@ -96,7 +92,7 @@
     <div style="display: flex; justify-content: center; align-items: center;">
       <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
         aria-controls="offcanvasExample" style="margin-top: 20px;">
-        Open Scatterplot Filters
+        Open Filters
       </button>
     </div>
 
@@ -113,7 +109,7 @@
 
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Scatterplot Filter Menu</h5>
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filter Menu</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -436,7 +432,7 @@
     }
 
     CsvToHtmlTable.init({
-      csv_path: "data_noise.csv",
+      csv_path: "data_website.csv",
       element: "table-container",
       allow_download: false,
       csv_options: {
