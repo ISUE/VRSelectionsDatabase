@@ -58,10 +58,10 @@ function checkboxStates() {
 
   // console.log(filterList);
 
-  MakeScatter("./data_noise.csv");
+  MakeScatter("./data_website.csv");
 
   CsvToHtmlTable.init({
-    csv_path: "data_noise.csv",
+    csv_path: "data_website.csv",
     element: "table-container",
     allow_download: false,
     csv_options: {

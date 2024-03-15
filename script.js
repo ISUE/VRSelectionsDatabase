@@ -7,7 +7,7 @@
 
 var myScatter;
 
-function MakeScatter(csv_path = "./data_noise.csv") {
+function MakeScatter(csv_path = "./data_website.csv") {
 
   var TITLE = 'Object selection scenarios in VR (t-SNE Feature Space)';
   var POINT_X = 'X'; // column name for x values in data.csv
@@ -296,7 +296,7 @@ function MakeScatter(csv_path = "./data_noise.csv") {
   });
 }
 
-$(document).ready(MakeScatter("./data_noise.csv"));
+$(document).ready(MakeScatter("./data_website.csv"));
 
 
 window.onscroll = function() {
