@@ -1,4 +1,4 @@
-Application,Timestamp,Description,Dimensions,Reference Frame,Proximity,Target Type,Interactor,Indication,Indication Feedback,Confirmation,Outcome
+application,videoUrl,description,dimensions,referenceFrame,proximity,targetType,interactor,indication,indicationFeedback,confirmation,outcome
 A Township Tale,https://youtu.be/gooDnzvQTQ0?t=314,Adding Items to on-torso UI,2D,Torso,On-Body,Storage unit,Handheld object,Intersecting,Visual,Analog - Release,System control
 A Township Tale,https://youtu.be/m0lClZrF9nY?t=149,Adding a selected object as a feature to another,3D,Environment,Peripersonal,Avatar,Handheld object,Intersecting,Nothing,Analog - Release,System control
 A Township Tale,https://youtu.be/m0lClZrF9nY?si=VV18La2bh16tpdFx&t=283,Button selection to interact with env objects,3D,Environment,Peripersonal,3D Object,Virtual hand,Intersecting,Visual,Press-in motion,System control
