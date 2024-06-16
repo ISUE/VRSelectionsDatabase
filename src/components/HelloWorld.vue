@@ -48,7 +48,139 @@
     </v-row>
 
     <v-row>
-      <v-col>
+      <v-col cols="4">
+        <v-card>
+          <v-card-title class="d-flex align-center">
+            <v-icon icon="mdi-filter" />
+            Filters
+          </v-card-title>
+          <v-card-text>
+            <v-list>
+              <v-list-item>
+                <v-list-item-title>Dimensions</v-list-item-title>
+                <v-list-item-subtitle>
+                  <v-select
+                    chips
+                    multiple
+                    clearable
+                    variant="outlined"
+                    density="compact"
+                    placeholder="Any"
+                    :items="dimensions"
+                    v-model="selectedDimensions"
+                  />
+                </v-list-item-subtitle>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-title>Reference Frame</v-list-item-title>
+                <v-list-item-subtitle>
+                  <v-select
+                    chips
+                    multiple
+                    clearable
+                    variant="outlined"
+                    density="compact"
+                    placeholder="Any"
+                    :items="referenceFrames"
+                    v-model="selectedReferenceFrames"
+                  />
+                </v-list-item-subtitle>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-title>Proximity</v-list-item-title>
+                <v-list-item-subtitle>
+                  <v-select
+                    chips
+                    multiple
+                    clearable
+                    variant="outlined"
+                    density="compact"
+                    placeholder="Any"
+                    :items="proximities"
+                    v-model="selectedProximities"
+                  />
+                </v-list-item-subtitle>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-title>Target Type</v-list-item-title>
+                <v-list-item-subtitle>
+                  <v-select
+                    chips
+                    multiple
+                    clearable
+                    variant="outlined"
+                    density="compact"
+                    placeholder="Any"
+                    :items="targetTypes"
+                    v-model="selectedTargetTypes"
+                  />
+                </v-list-item-subtitle>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-title>Interactor</v-list-item-title>
+                <v-list-item-subtitle>
+                  <v-select
+                    chips
+                    multiple
+                    clearable
+                    variant="outlined"
+                    density="compact"
+                    placeholder="Any"
+                    :items="interactors"
+                    v-model="selectedInteractors"
+                  />
+                </v-list-item-subtitle>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-title>Indication</v-list-item-title>
+                <v-list-item-subtitle>
+                  <v-select
+                    chips
+                    multiple
+                    clearable
+                    variant="outlined"
+                    density="compact"
+                    placeholder="Any"
+                    :items="indications"
+                    v-model="selectedIndications"
+                  />
+                </v-list-item-subtitle>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-title>Confirmation</v-list-item-title>
+                <v-list-item-subtitle>
+                  <v-select
+                    chips
+                    multiple
+                    clearable
+                    variant="outlined"
+                    density="compact"
+                    placeholder="Any"
+                    :items="confirmations"
+                    v-model="selectedConfirmations"
+                  />
+                </v-list-item-subtitle>
+              </v-list-item>
+              <v-list-item>
+                <v-list-item-title>Outcome</v-list-item-title>
+                <v-list-item-subtitle>
+                  <v-select
+                    chips
+                    multiple
+                    clearable
+                    variant="outlined"
+                    density="compact"
+                    placeholder="Any"
+                    :items="outcomes"
+                    v-model="selectedOutcomes"
+                  />
+                </v-list-item-subtitle>
+              </v-list-item>
+            </v-list>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="8">
         <v-card>
           <v-card-title class="d-flex align-center">
             <v-icon icon="mdi-database" />
@@ -79,28 +211,6 @@
                   </template>
                 </v-card>
               </template>
-
-              <!--              PER-COLUMN FILTER ATTEMPT-->
-              <!--              <template v-slot:header.application="{ column }">-->
-              <!--                {{ column.title }}-->
-              <!--                <v-autocomplete-->
-              <!--                  v-model="selectedApplications"-->
-              <!--                  :items="applications"-->
-              <!--                  density="compact"-->
-              <!--                  variant="solo-filled"-->
-              <!--                  flat-->
-              <!--                  hide-details-->
-              <!--                  single-line-->
-              <!--                  multiple-->
-              <!--                  auto-select-first-->
-              <!--                >-->
-              <!--                  <template v-slot:selection="{ item, index }">-->
-              <!--                    <v-chip v-if="index === 1">-->
-              <!--                      {{ selectedApplications.length }}-->
-              <!--                    </v-chip>-->
-              <!--                  </template>-->
-              <!--                </v-autocomplete>-->
-              <!--              </template>-->
             </v-data-table-virtual>
           </v-card-text>
         </v-card>
@@ -162,46 +272,6 @@ const headers = [
   { title: "Outcome", key: "outcome", sortable: false },
 ];
 
-const filterFunctions: Record<
-  string,
-  (
-    value: string,
-    query: string,
-    item?: any,
-  ) => boolean | number | [number, number] | [number, number][]
-> = {
-  application: (value, query, item) => {
-    console.log("Value:", value);
-    console.log("Query:", query);
-    console.log("Item:", item);
-    console.log("Returning:", value.includes(query));
-    return value.includes(query);
-  },
-  // dimensions: (value, query) => value.includes(query),
-  // referenceFrame: (value, query) => value.includes(query),
-  // proximity: (value, query) => value.includes(query),
-  // targetType: (value, query) => value.includes(query),
-  // interactor: (value, query) => value.includes(query),
-  // indication: (value, query) => value.includes(query),
-  // indicationFeedback: (value, query) => value.includes(query),
-  // confirmation: (value, query) => value.includes(query),
-  // outcome: (value, query) => value.includes(query),
-};
-
-const filterFunction = (
-  value: string,
-  query: string,
-  item?: any,
-): boolean | number | [number, number] | [number, number][] => {
-  console.log("Value:", value);
-  console.log("Query:", query);
-  console.log("Item:", item);
-  return [];
-};
-
-const applications = [...new Set(data.value.map((entry) => entry.application))];
-const selectedApplications = ref([] as string[]);
-
 const dimensions = [...new Set(data.value.map((entry) => entry.dimensions))];
 const selectedDimensions = ref([] as string[]);
 
@@ -222,11 +292,6 @@ const selectedInteractors = ref([] as string[]);
 const indications = [...new Set(data.value.map((entry) => entry.indication))];
 const selectedIndications = ref([] as string[]);
 
-const indicationFeedbacks = [
-  ...new Set(data.value.map((entry) => entry.indicationFeedback)),
-];
-const selectedIndicationFeedbacks = ref([] as string[]);
-
 const confirmations = [
   ...new Set(data.value.map((entry) => entry.confirmation)),
 ];
@@ -236,58 +301,57 @@ const outcomes = [...new Set(data.value.map((entry) => entry.outcome))];
 const selectedOutcomes = ref([] as string[]);
 
 const filteredData = computed(() => {
-  let result = data.value;
-  if (selectedApplications.value.length > 0) {
-    result = result.filter((entry) =>
-      selectedApplications.value.includes(entry.application),
-    );
-  }
-  if (selectedDimensions.value.length > 0) {
-    result = result.filter((entry) =>
-      selectedDimensions.value.includes(entry.dimensions),
-    );
-  }
-  if (selectedReferenceFrames.value.length > 0) {
-    result = result.filter((entry) =>
-      selectedReferenceFrames.value.includes(entry.referenceFrame),
-    );
-  }
-  if (selectedProximities.value.length > 0) {
-    result = result.filter((entry) =>
-      selectedProximities.value.includes(entry.proximity),
-    );
-  }
-  if (selectedTargetTypes.value.length > 0) {
-    result = result.filter((entry) =>
-      selectedTargetTypes.value.includes(entry.targetType),
-    );
-  }
-  if (selectedInteractors.value.length > 0) {
-    result = result.filter((entry) =>
-      selectedInteractors.value.includes(entry.interactor),
-    );
-  }
-  if (selectedIndications.value.length > 0) {
-    result = result.filter((entry) =>
-      selectedIndications.value.includes(entry.indication),
-    );
-  }
-  if (selectedIndicationFeedbacks.value.length > 0) {
-    result = result.filter((entry) =>
-      selectedIndicationFeedbacks.value.includes(entry.indicationFeedback),
-    );
-  }
-  if (selectedConfirmations.value.length > 0) {
-    result = result.filter((entry) =>
-      selectedConfirmations.value.includes(entry.confirmation),
-    );
-  }
-  if (selectedOutcomes.value.length > 0) {
-    result = result.filter((entry) =>
-      selectedOutcomes.value.includes(entry.outcome),
-    );
-  }
-  return result;
+  return data.value.filter((entry) => {
+    if (
+      selectedDimensions.value.length > 0 &&
+      !selectedDimensions.value.includes(entry.dimensions)
+    ) {
+      return false;
+    }
+    if (
+      selectedReferenceFrames.value.length > 0 &&
+      !selectedReferenceFrames.value.includes(entry.referenceFrame)
+    ) {
+      return false;
+    }
+    if (
+      selectedProximities.value.length > 0 &&
+      !selectedProximities.value.includes(entry.proximity)
+    ) {
+      return false;
+    }
+    if (
+      selectedTargetTypes.value.length > 0 &&
+      !selectedTargetTypes.value.includes(entry.targetType)
+    ) {
+      return false;
+    }
+    if (
+      selectedInteractors.value.length > 0 &&
+      !selectedInteractors.value.includes(entry.interactor)
+    ) {
+      return false;
+    }
+    if (
+      selectedIndications.value.length > 0 &&
+      !selectedIndications.value.includes(entry.indication)
+    ) {
+      return false;
+    }
+    if (
+      selectedConfirmations.value.length > 0 &&
+      !selectedConfirmations.value.includes(entry.confirmation)
+    ) {
+      return false;
+    }
+    if (
+      selectedOutcomes.value.length > 0 &&
+      !selectedOutcomes.value.includes(entry.outcome)
+    ) {
+      return false;
+    }
+    return true;
+  });
 });
 
 const getThumbnailUrl = (url: string) => {
