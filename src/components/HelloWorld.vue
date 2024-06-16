@@ -204,6 +204,13 @@
               :items="filteredData"
               v-model:search="debouncedSearch"
             >
+              <template v-slot:item.action="{ item }">
+                <v-btn
+                  variant="plain"
+                  icon="mdi-information-outline"
+                  @click="openEntryDetailCard(item)"
+                />
+              </template>
               <template v-slot:item.videoUrl="{ item }">
                 <v-card :href="item.videoUrl" target="_blank">
                   <template #default>
@@ -217,31 +224,29 @@
       </v-col>
     </v-row>
   </v-container>
+
+  <v-dialog v-model="showEntryDetailCard" width="auto">
+    <EntryDetailCard :entry="selectedEntry" />
+  </v-dialog>
 </template>
 
 <script setup lang="ts">
 import csvData from "@/assets/data_website.csv";
 import { computed, ref } from "vue";
 import { useDebounce } from "@vueuse/core";
-
-interface Entry {
-  videoUrl: string;
-  application: string;
-  description: string;
-  dimensions: string;
-  referenceFrame: string;
-  proximity: string;
-  targetType: string;
-  interactor: string;
-  indication: string;
-  indicationFeedback: string;
-  confirmation: string;
-  outcome: string;
-}
+import { Entry } from "@/types/entry";
 
 const data = ref(csvData as Entry[]);
 const search = ref("");
 const debouncedSearch = useDebounce(search, 300);
+
+const showEntryDetailCard = ref(false);
+const selectedEntry = ref({} as Entry);
+
+const openEntryDetailCard = (entry: Entry) => {
+  selectedEntry.value = entry;
+  showEntryDetailCard.value = true;
+};
 
 const whatIsThisItems = [
   "A dataset of scenarios where VR selections occur",
@@ -249,6 +254,7 @@ const whatIsThisItems = [
 ];
 
 const headers = [
+  { title: "", key: "action", sortable: false, filterable: false },
   { title: "Video", key: "videoUrl", sortable: false, filterable: false },
   {
     title: "Application",
@@ -269,7 +275,6 @@ const headers = [
   { title: "Target Type", key: "targetType", sortable: false },
   { title: "Interactor", key: "interactor", sortable: false },
   { title: "Indication", key: "indication", sortable: false },
-  { title: "Indication Feedback", key: "indicationFeedback", sortable: false },
   { title: "Confirmation", key: "confirmation", sortable: false },
   { title: "Outcome", key: "outcome", sortable: false },
 ];
