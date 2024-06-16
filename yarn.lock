@@ -944,9 +944,9 @@ vue@^3.4.21:
     "@vue/shared" "3.4.21"
 
 vuetify@^3.5.8:
-  version "3.5.14"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-3.5.14.tgz#9590a06bcf49398f1303203b84cc065899d7cec8"
-  integrity sha512-bmfid7K4D+wPi9h7sK4PxjmIB2tBzNuqlW14cs30iQ7GAphEeo/HYwn6aEdNK/Na+imhti8CJDDqdGs6SEfyXQ==
+  version "3.6.9"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-3.6.9.tgz#6c063fa6e8097e854406467db25e8d8a40e26e71"
+  integrity sha512-LVIZL0OCwzg3Aw2F8nT1rK/renpTPOcDEPe5E002Vj+VjXwsCNqwwxNteGfrcNlp0vgIJ8WusMvaxp69UJ3NJg==
 
 webpack-sources@^3.2.3:
   version "3.2.3"
