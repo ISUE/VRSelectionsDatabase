@@ -202,7 +202,7 @@
             <v-data-table-virtual
               :headers="headers"
               :items="filteredData"
-              v-model:search="search"
+              v-model:search="debouncedSearch"
             >
               <template v-slot:item.videoUrl="{ item }">
                 <v-card :href="item.videoUrl" target="_blank">
@@ -222,6 +222,7 @@
 <script setup lang="ts">
 import csvData from "@/assets/data_website.csv";
 import { computed, ref } from "vue";
+import { useDebounce } from "@vueuse/core";
 
 interface Entry {
   videoUrl: string;
@@ -240,6 +241,7 @@ interface Entry {
 
 const data = ref(csvData as Entry[]);
 const search = ref("");
+const debouncedSearch = useDebounce(search, 300);
 
 const whatIsThisItems = [
   "A dataset of scenarios where VR selections occur",
