@@ -1,11 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld />
+      <DatabaseView />
     </v-main>
   </v-app>
 </template>
-
-<script setup lang="ts">
-//
-</script>
