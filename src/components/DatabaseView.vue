@@ -1,10 +1,12 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="1">
-        <v-img width="100%" src="@/assets/logo.ico" />
+      <v-col cols="auto">
+        <router-link to="/">
+          <v-img width="50px" src="@/assets/logo.ico" />
+        </router-link>
       </v-col>
-      <v-col cols="11">
+      <v-col cols>
         <h1>
           Interactive Visualizer for Object Selection Techniques in Consumer VR
           Applications
@@ -18,11 +20,27 @@
           <v-card-title>What is this?</v-card-title>
           <v-card-text>
             <ul class="ml-12">
-              <li v-for="item in whatIsThisItems" :key="item">{{ item }}</li>
+              <li>
+                A database of VR scenarios where selections occur in consumer VR
+                applications. Its intention is to connect the research
+                literature on VR selection methodology with practical
+                implementations.
+              </li>
+              <li>
+                Context attributes (features) in VR selection scenarios were
+                collected and organized into the 'Where' (Reference Frame and
+                Target Type) and 'How' (Indication and Confirmation stages,
+                Interactor, Outcome) taxonomies (image on the right).
+              </li>
+              <li>
+                This database is open-access,
+                <a href="/contributions">open to contributions</a>, and will be
+                updated with new games and newly identified methods for
+                selections in consumer VR appliications. If you find it useful
+                in your work, please consider
+                <a href="/contributions">citing</a> it.
+              </li>
             </ul>
-            <p class="ml-4 mt-2">
-              <i> This webpage was made for data visualization purposes. </i>
-            </p>
           </v-card-text>
         </v-card>
         <v-card class="mt-2">
@@ -247,11 +265,6 @@ const openEntryDetailCard = (entry: Entry) => {
   selectedEntry.value = entry;
   showEntryDetailCard.value = true;
 };
-
-const whatIsThisItems = [
-  "A dataset of scenarios where VR selections occur",
-  "Context attributes (features) in VR object selection scenarios were collected",
-];
 
 const headers = [
   { title: "", key: "action", sortable: false, filterable: false },
