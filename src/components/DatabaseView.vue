@@ -3,7 +3,11 @@
     <v-row>
       <v-col cols="auto">
         <router-link to="/">
-          <v-img width="50px" src="@/assets/logo.ico" />
+          <v-img
+            width="50px"
+            src="@/assets/logo.ico"
+            @load="checkImagesLoaded"
+          />
         </router-link>
       </v-col>
       <v-col cols>
@@ -15,8 +19,8 @@
     </v-row>
 
     <v-row>
-      <v-col>
-        <v-card>
+      <v-col cols="12" md="6">
+        <v-card class="mt-2">
           <v-card-title>What is this?</v-card-title>
           <v-card-text>
             <ul class="ml-12">
@@ -33,12 +37,15 @@
                 Interactor, Outcome) taxonomies (image on the right).
               </li>
               <li>
-                This database is open-access,
-                <a href="/contributions">open to contributions</a>, and will be
-                updated with new games and newly identified methods for
-                selections in consumer VR appliications. If you find it useful
-                in your work, please consider
-                <a href="/contributions">citing</a> it.
+                <div>
+                  This database is open-access,
+                  <router-link to="/contributions"
+                    >open to contributions</router-link
+                  >, and will be updated with new games and newly identified
+                  methods for selections in consumer VR applications. If you
+                  find it useful in your work, please consider
+                  <router-link to="/contributions">citing</router-link> it.
+                </div>
               </li>
             </ul>
           </v-card-text>
@@ -56,17 +63,18 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col>
-        <v-card>
+
+      <v-col cols="12" md="6">
+        <v-card class="mt-2">
           <template v-slot:default>
-            <v-img src="@/assets/webscreen.png" />
+            <v-img src="@/assets/webscreen.png" @load="checkImagesLoaded" />
           </template>
         </v-card>
       </v-col>
     </v-row>
 
     <v-row>
-      <v-col cols="4">
+      <v-col cols="3">
         <v-card>
           <v-card-title class="d-flex align-center">
             <v-icon icon="mdi-filter" />
@@ -198,7 +206,7 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="8">
+      <v-col cols="9">
         <v-card>
           <v-card-title class="d-flex align-center">
             <v-icon icon="mdi-database" />
@@ -218,6 +226,7 @@
           </v-card-title>
           <v-card-text>
             <v-data-table-virtual
+              v-if="imagesLoaded"
               :headers="headers"
               :items="filteredData"
               v-model:search="debouncedSearch"
@@ -383,6 +392,18 @@ const getThumbnailUrl = (url: string) => {
   } catch (error) {
     console.error(`Failed to generate a YouTube thumbnail for URL '${url}'`);
     return "/open-in-new.svg";
+  }
+};
+
+// New variables and methods for tracking image loading state
+const imagesLoaded = ref(false);
+const imageLoadCount = ref(0);
+
+const checkImagesLoaded = () => {
+  imageLoadCount.value++;
+  if (imageLoadCount.value === 2) {
+    // Update this count based on the total number of images
+    imagesLoaded.value = true;
   }
 };
 </script>

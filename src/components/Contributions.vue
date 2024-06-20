@@ -75,6 +75,30 @@
             </p>
             <highlightjs language="bibtex" :code="citationText" />
           </v-card-text>
+          <v-card-text>
+            <v-row justify="space-around">
+              <v-col cols="auto">
+                <v-btn icon variant="plain" :href="pdfLink" target="_blank">
+                  <v-icon size="40">mdi-file-pdf-box</v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="auto">
+                <v-btn
+                  icon
+                  variant="plain"
+                  :href="sourceCodeLink"
+                  target="_blank"
+                >
+                  <v-icon size="40">mdi-github</v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="auto">
+                <v-btn icon variant="plain" :href="labPageLink" target="_blank">
+                  <v-icon size="40">mdi-flask</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -774,4 +798,7 @@ const citationText = ref<string>(
     year={2024}
 }`,
 );
+const pdfLink = "path/to/pdf";
+const sourceCodeLink = "https://github.com/your-repo";
+const labPageLink = "path/to/lab-page";
 </script>
