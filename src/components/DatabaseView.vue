@@ -1,16 +1,23 @@
 <template>
   <v-container>
-    <v-row>
+    <v-row align="center">
       <v-col cols="auto">
         <router-link to="/">
-          <v-img
-            width="50px"
-            src="@/assets/logo.ico"
-            @load="checkImagesLoaded"
-          />
+          <v-row align="center" no-gutters>
+            <v-col cols="auto">
+              <v-img
+                width="50px"
+                src="@/assets/vrfox.png"
+                @load="checkImagesLoaded"
+              />
+            </v-col>
+            <v-col>
+              <v-card-title class="large-text">Home</v-card-title>
+            </v-col>
+          </v-row>
         </router-link>
       </v-col>
-      <v-col cols>
+      <v-col>
         <h1>
           Interactive Visualizer for Object Selection Techniques in Consumer VR
           Applications
@@ -407,3 +414,10 @@ const checkImagesLoaded = () => {
   }
 };
 </script>
+
+<style scoped>
+.large-text {
+  font-size: 36px; /* Adjust the size as needed */
+  letter-spacing: normal; /* Adjust the spacing as needed */
+}
+</style>
