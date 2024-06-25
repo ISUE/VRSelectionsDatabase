@@ -90,8 +90,8 @@
           <v-card-text>
             <v-list>
               <v-list-item>
-                Selections within a filter use OR logic, selections across different
-                filters uses AND logic.
+                Selections within a filter use OR logic, selections across
+                different filters uses AND logic.
               </v-list-item>
               <v-list-item>
                 <v-list-item-title>Dimensions</v-list-item-title>
@@ -244,10 +244,11 @@
             />
           </v-card-title>
           <v-card-text>
-            <v-data-table-virtual
+            <v-data-table
               v-if="imagesLoaded"
               :headers="headers"
               :items="filteredData"
+              :items-per-page="25"
               v-model:search="debouncedSearch"
             >
               <template v-slot:item.action="{ item }">
@@ -264,7 +265,7 @@
                   </template>
                 </v-card>
               </template>
-            </v-data-table-virtual>
+            </v-data-table>
           </v-card-text>
         </v-card>
       </v-col>
@@ -295,7 +296,12 @@ const openEntryDetailCard = (entry: Entry) => {
 };
 
 const headers = [
-  { title: "", key: "action", sortable: false, filterable: false },
+  {
+    title: "",
+    key: "action",
+    sortable: false,
+    filterable: false,
+  },
   { title: "Video", key: "videoUrl", sortable: false, filterable: false },
   {
     title: "Application",
@@ -309,6 +315,7 @@ const headers = [
     key: "description",
     sortable: false,
     filterable: false,
+    width: "300px",
   },
   { title: "Dimensions", key: "dimensions", sortable: false },
   { title: "Reference Frame", key: "referenceFrame", sortable: false },
@@ -431,5 +438,9 @@ const checkImagesLoaded = () => {
 .large-text {
   font-size: 36px; /* Adjust the size as needed */
   letter-spacing: normal; /* Adjust the spacing as needed */
+}
+
+:deep(.v-data-table__td) {
+  padding: 0px 11px !important;
 }
 </style>
