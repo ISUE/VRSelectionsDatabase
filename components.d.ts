@@ -11,6 +11,7 @@ declare module 'vue' {
     DatabaseView: typeof import('./src/components/DatabaseView.vue')['default']
     EntryDetailCard: typeof import('./src/components/EntryDetailCard.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
+    LinksSection: typeof import('./src/components/LinksSection.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

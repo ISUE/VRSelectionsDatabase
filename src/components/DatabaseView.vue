@@ -56,6 +56,14 @@
               </li>
             </ul>
           </v-card-text>
+          <div>
+            <LinksSection
+              :pdfLink="pdfLink"
+              :sourceCodeLink="sourceCodeLink"
+              :labPageLink="labPageLink"
+              :doiLink="doiLink"
+            />
+          </div>
         </v-card>
         <v-card class="mt-2">
           <v-card-title>Note</v-card-title>
@@ -432,6 +440,11 @@ const checkImagesLoaded = () => {
     imagesLoaded.value = true;
   }
 };
+
+const pdfLink = "path/to/pdf";
+const sourceCodeLink = "https://github.com/ISUE/vr_selections";
+const labPageLink = "https://www.eecs.ucf.edu/isuelab/";
+const doiLink = "path/to/doi";
 </script>
 
 <style scoped>
