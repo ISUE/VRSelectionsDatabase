@@ -2,7 +2,7 @@
   <v-footer class="footer" padless>
     <v-row justify="center">
       <v-col class="text-center" cols="12">
-        <span>© Your Name, 2024</span>
+        <span>© ISUE Lab, 2024</span>
       </v-col>
     </v-row>
   </v-footer>
