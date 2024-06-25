@@ -99,6 +99,7 @@
                     variant="outlined"
                     density="compact"
                     placeholder="Any"
+                    hide-details
                     :items="dimensions"
                     v-model="selectedDimensions"
                   />
@@ -114,6 +115,7 @@
                     variant="outlined"
                     density="compact"
                     placeholder="Any"
+                    hide-details
                     :items="referenceFrames"
                     v-model="selectedReferenceFrames"
                   />
@@ -129,6 +131,7 @@
                     variant="outlined"
                     density="compact"
                     placeholder="Any"
+                    hide-details
                     :items="proximities"
                     v-model="selectedProximities"
                   />
@@ -144,6 +147,7 @@
                     variant="outlined"
                     density="compact"
                     placeholder="Any"
+                    hide-details
                     :items="targetTypes"
                     v-model="selectedTargetTypes"
                   />
@@ -159,6 +163,7 @@
                     variant="outlined"
                     density="compact"
                     placeholder="Any"
+                    hide-details
                     :items="interactors"
                     v-model="selectedInteractors"
                   />
@@ -174,6 +179,7 @@
                     variant="outlined"
                     density="compact"
                     placeholder="Any"
+                    hide-details
                     :items="indications"
                     v-model="selectedIndications"
                   />
@@ -189,6 +195,7 @@
                     variant="outlined"
                     density="compact"
                     placeholder="Any"
+                    hide-details
                     :items="confirmations"
                     v-model="selectedConfirmations"
                   />
@@ -204,6 +211,7 @@
                     variant="outlined"
                     density="compact"
                     placeholder="Any"
+                    hide-details
                     :items="outcomes"
                     v-model="selectedOutcomes"
                   />
