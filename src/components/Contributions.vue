@@ -48,9 +48,7 @@
               </li>
               <li>
                 <strong>Submit a Pull Request:</strong> Fork the
-                <a href="https://github.com/ISUE/vr_selections" target="_blank"
-                  >ISUE/vr_selections</a
-                >
+                <a :href="sourceCodeLink" target="_blank">ISUE/vr_selections</a>
                 repository and edit the
                 <span
                   style="
@@ -69,9 +67,7 @@
                 database entries will then be reflected on the website. If
                 accounting for new scenarios requires updating the taxonomy,
                 please open a discussion on
-                <a href="https://github.com/ISUE/vr_selections" target="_blank"
-                  >ISUE/vr_selections</a
-                >
+                <a :href="sourceCodeLink" target="_blank">ISUE/vr_selections</a>
                 and we will review it.
               </li>
             </ul>
@@ -109,6 +105,17 @@
               <v-col cols="auto">
                 <v-btn icon variant="plain" :href="labPageLink" target="_blank">
                   <v-icon size="40">mdi-flask</v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="auto">
+                <v-btn icon variant="plain" :href="doiLink" target="_blank">
+                  <v-icon size="40">
+                    <img
+                      src="/doi.svg"
+                      style="width: 40px; height: 40px"
+                      alt="DOI"
+                    />
+                  </v-icon>
                 </v-btn>
               </v-col>
             </v-row>
@@ -815,11 +822,12 @@ const citationText = ref<string>(
 const pdfLink = "path/to/pdf";
 const sourceCodeLink = "https://github.com/ISUE/vr_selections";
 const labPageLink = "https://www.eecs.ucf.edu/isuelab/";
+const doiLink = "path/to/doi";
 </script>
 
 <style scoped>
 .large-text {
-  font-size: 36px; /* Adjust the size as needed */
-  letter-spacing: normal; /* Adjust the spacing as needed */
+  font-size: 36px;
+  letter-spacing: normal;
 }
 </style>
