@@ -47,7 +47,10 @@
                 provided taxonomy.
               </li>
               <li>
-                <strong>Submit a Pull Request:</strong> Fork the [ANON LINK]
+                <strong>Submit a Pull Request:</strong> Fork the
+                <a href="https://github.com/ISUE/vr_selections" target="_blank"
+                  >ISUE/vr_selections</a
+                >
                 repository and edit the
                 <span
                   style="
@@ -65,7 +68,11 @@
                 submission, and once approved, it will be merged. The new
                 database entries will then be reflected on the website. If
                 accounting for new scenarios requires updating the taxonomy,
-                please open a discussion on [GitHub] and we will review it.
+                please open a discussion on
+                <a href="https://github.com/ISUE/vr_selections" target="_blank"
+                  >ISUE/vr_selections</a
+                >
+                and we will review it.
               </li>
             </ul>
           </v-card-text>
@@ -806,8 +813,8 @@ const citationText = ref<string>(
 }`,
 );
 const pdfLink = "path/to/pdf";
-const sourceCodeLink = "https://github.com/your-repo";
-const labPageLink = "path/to/lab-page";
+const sourceCodeLink = "https://github.com/ISUE/vr_selections";
+const labPageLink = "https://www.eecs.ucf.edu/isuelab/";
 </script>
 
 <style scoped>
