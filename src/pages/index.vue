@@ -287,7 +287,6 @@
 </template>
 
 <script setup lang="ts">
-// import csvData from "/data_website.csv";
 import { computed, ref } from "vue";
 import { useDebounce } from "@vueuse/core";
 import type { Entry } from "~/types";
