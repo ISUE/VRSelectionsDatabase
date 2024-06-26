@@ -4,8 +4,6 @@ import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 const labBase = "/isuelab/research/vr_selections/";
 
 export default defineNuxtConfig({
-
-
   srcDir: "src/",
   css: [
     "@mdi/font/css/materialdesignicons.css",
@@ -14,9 +12,7 @@ export default defineNuxtConfig({
   ],
   app: {
     baseURL: "/isuelab/research/vr_selections/",
-    // baseURL: "/",
     buildAssetsDir: "/isuelab/research/vr_selections/_nuxt/",
-    // buildAssetsDir: "/",
     cdnURL: "/isuelab/research/vr_selections/",
     head: {
       charset: "utf-8",

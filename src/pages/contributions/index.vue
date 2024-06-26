@@ -786,7 +786,7 @@ const citationText = ref<string>(
       booktitle={Some Cool 2024 VR Interactions Conference},
       pages={1-11},
       year={2024}
-  }`
+}`
 );
 const csvLink = "https://github.com/ISUE/vr_selections/public/data_website.csv";
 const sourceCodeLink = "https://github.com/ISUE/vr_selections";

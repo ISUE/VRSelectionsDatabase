@@ -92,7 +92,7 @@
                 Selections within a filter use OR logic, selections across
                 different filters uses AND logic.
               </v-list-item>
-              <v-list-item v-if="!loading">
+              <v-list-item>
                 <v-list-item-title>Dimensions</v-list-item-title>
                 <v-list-item-subtitle>
                   <v-select
