@@ -1,7 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
-const labBase = "/isuelab/research/vr_selections/";
+const ucf = "https://www.eecs.ucf.edu";
+const lab = "/isuelab/research/vr_selections/";
+const ucf_lab = ucf + lab;
 
 export default defineNuxtConfig({
   srcDir: "src/",
@@ -26,7 +28,7 @@ export default defineNuxtConfig({
         },
         // Open Graph / Facebook
         { property: "og:type", content: "website" },
-        { property: "og:url", content: process.env.BASE_URL },
+        { property: "og:url", content: ucf_lab },
         {
           property: "og:title",
           content: "VR Selections Interactive Visualizer",
@@ -38,12 +40,12 @@ export default defineNuxtConfig({
         },
         {
           property: "og:image",
-          content: `${process.env.BASE_URL}/preview.png`,
+          content: `${ucf_lab}/preview.png`,
         },
         // Twitter
         { name: "twitter:card", content: "summary_large_image" },
-        { property: "twitter:domain", content: "45.56.116.241" },
-        { property: "twitter:url", content: process.env.BASE_URL },
+        { property: "twitter:domain", content: ucf },
+        { property: "twitter:url", content: ucf_lab },
         {
           name: "twitter:title",
           content: "VR Selections Interactive Visualizer",
@@ -55,7 +57,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:image",
-          content: `${process.env.BASE_URL}/preview.png`,
+          content: `${ucf_lab}/preview.png`,
         },
       ],
       link: [
@@ -66,7 +68,7 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/x-icon",
-          href: `${labBase}logo.ico`,
+          href: `${lab}logo.ico`,
         },
       ],
     },
