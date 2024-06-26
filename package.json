@@ -1,33 +1,29 @@
 {
-  "name": "isue_vr_selections",
-  "version": "0.0.0",
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@babel/types": "^7.24.7",
     "@highlightjs/vue-plugin": "^2.1.0",
-    "@mdi/font": "6.2.95",
+    "@mdi/font": "^7.4.47",
+    "@vitejs/plugin-vue": "^5.0.5",
     "@vueuse/core": "^10.11.0",
+    "d3-dsv": "^3.0.1",
     "highlight.js": "^11.9.0",
-    "roboto-fontface": "*",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.3",
-    "vuetify": "^3.5.8"
-  },
-  "devDependencies": {
-    "@babel/types": "^7.24.0",
-    "@rollup/plugin-dsv": "^3.0.4",
-    "@types/node": "^20.11.25",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "prettier": "^3.2.5",
-    "sass": "^1.71.1",
-    "typescript": "^5.4.2",
-    "unplugin-fonts": "^1.1.1",
-    "unplugin-vue-components": "^0.26.0",
-    "vite": "^5.1.5",
+    "highlightjs": "^9.16.2",
+    "nuxt": "^3.12.2",
+    "nuxt-highlightjs": "^1.0.3",
+    "roboto-fontface": "^0.10.0",
     "vite-plugin-vuetify": "^2.0.3",
-    "vue-tsc": "^2.0.6"
+    "vue": "^3.4.30",
+    "vue-highlight.js": "^3.1.0",
+    "vuetify": "^3.6.10"
   }
 }

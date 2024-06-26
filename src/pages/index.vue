@@ -2,20 +2,16 @@
   <v-container>
     <v-row align="center">
       <v-col cols="auto">
-        <router-link to="/">
+        <nuxt-link to="/">
           <v-row align="center" no-gutters>
             <v-col cols="auto">
-              <v-img
-                width="50px"
-                src="@/assets/vrfox.png"
-                @load="checkImagesLoaded"
-              />
+              <v-img width="50px" src="/vrfox.png" @load="checkImagesLoaded" />
             </v-col>
             <v-col>
               <v-card-title class="large-text">Home</v-card-title>
             </v-col>
           </v-row>
-        </router-link>
+        </nuxt-link>
       </v-col>
       <v-col>
         <h1>
@@ -46,12 +42,12 @@
               <li>
                 <div>
                   This database is open-access,
-                  <router-link to="/contributions"
-                    >open to contributions</router-link
+                  <nuxt-link to="/contributions"
+                    >open to contributions</nuxt-link
                   >, and will be updated with new games and newly identified
                   methods for selections in consumer VR applications. If you
                   find it useful in your work, please consider
-                  <router-link to="/contributions">citing</router-link> it.
+                  <nuxt-link to="/contributions">citing</nuxt-link> it.
                 </div>
               </li>
             </ul>
@@ -82,7 +78,7 @@
       <v-col cols="12" md="6">
         <v-card class="mt-2">
           <template v-slot:default>
-            <v-img src="@/assets/webscreen.png" @load="checkImagesLoaded" />
+            <v-img src="/webscreen.png" @load="checkImagesLoaded" />
           </template>
         </v-card>
       </v-col>
@@ -101,7 +97,7 @@
                 Selections within a filter use OR logic, selections across
                 different filters uses AND logic.
               </v-list-item>
-              <v-list-item>
+              <v-list-item v-if="!loading">
                 <v-list-item-title>Dimensions</v-list-item-title>
                 <v-list-item-subtitle>
                   <v-select
@@ -252,6 +248,11 @@
             />
           </v-card-title>
           <v-card-text>
+            <v-progress-circular
+              v-if="loading"
+              indeterminate
+              color="primary"
+            ></v-progress-circular>
             <v-data-table
               v-if="imagesLoaded"
               :headers="headers"
@@ -286,12 +287,32 @@
 </template>
 
 <script setup lang="ts">
-import csvData from "@/assets/data_website.csv";
+// import csvData from "/data_website.csv";
 import { computed, ref } from "vue";
 import { useDebounce } from "@vueuse/core";
-import { Entry } from "@/types/entry";
+import type { Entry } from "~/types";
 
-const data = ref(csvData as Entry[]);
+const loadCsv = useNuxtApp().$loadCsv;
+const data = ref<Entry[]>([]);
+const loading = ref(true);
+
+onMounted(async () => {
+  data.value = (await loadCsv()) as Entry[];
+  dimensions.value = [...new Set(data.value.map((entry) => entry.dimensions))];
+  referenceFrames.value = [
+    ...new Set(data.value.map((entry) => entry.referenceFrame)),
+  ];
+  proximities.value = [...new Set(data.value.map((entry) => entry.proximity))];
+  targetTypes.value = [...new Set(data.value.map((entry) => entry.targetType))];
+  interactors.value = [...new Set(data.value.map((entry) => entry.interactor))];
+  indications.value = [...new Set(data.value.map((entry) => entry.indication))];
+  confirmations.value = [
+    ...new Set(data.value.map((entry) => entry.confirmation)),
+  ];
+  outcomes.value = [...new Set(data.value.map((entry) => entry.outcome))];
+  loading.value = false;
+});
+
 const search = ref("");
 const debouncedSearch = useDebounce(search, 300);
 
@@ -335,33 +356,23 @@ const headers = [
   { title: "Outcome", key: "outcome", sortable: false },
 ];
 
-const dimensions = [...new Set(data.value.map((entry) => entry.dimensions))];
-const selectedDimensions = ref([] as string[]);
-
-const referenceFrames = [
-  ...new Set(data.value.map((entry) => entry.referenceFrame)),
-];
-const selectedReferenceFrames = ref([] as string[]);
-
-const proximities = [...new Set(data.value.map((entry) => entry.proximity))];
-const selectedProximities = ref([] as string[]);
-
-const targetTypes = [...new Set(data.value.map((entry) => entry.targetType))];
-const selectedTargetTypes = ref([] as string[]);
-
-const interactors = [...new Set(data.value.map((entry) => entry.interactor))];
-const selectedInteractors = ref([] as string[]);
-
-const indications = [...new Set(data.value.map((entry) => entry.indication))];
-const selectedIndications = ref([] as string[]);
-
-const confirmations = [
-  ...new Set(data.value.map((entry) => entry.confirmation)),
-];
-const selectedConfirmations = ref([] as string[]);
-
-const outcomes = [...new Set(data.value.map((entry) => entry.outcome))];
-const selectedOutcomes = ref([] as string[]);
+// Filter States
+const dimensions = ref<string[]>([]);
+const selectedDimensions = ref<string[]>([]);
+const referenceFrames = ref<string[]>([]);
+const selectedReferenceFrames = ref<string[]>([]);
+const proximities = ref<string[]>([]);
+const selectedProximities = ref<string[]>([]);
+const targetTypes = ref<string[]>([]);
+const selectedTargetTypes = ref<string[]>([]);
+const interactors = ref<string[]>([]);
+const selectedInteractors = ref<string[]>([]);
+const indications = ref<string[]>([]);
+const selectedIndications = ref<string[]>([]);
+const confirmations = ref<string[]>([]);
+const selectedConfirmations = ref<string[]>([]);
+const outcomes = ref<string[]>([]);
+const selectedOutcomes = ref<string[]>([]);
 
 const filteredData = computed(() => {
   return data.value.filter((entry) => {

@@ -1,4 +1,3 @@
-<!-- src/components/CitingSection.vue -->
 <template>
   <v-card-text>
     <v-row justify="space-around">
@@ -20,7 +19,7 @@
       <v-col cols="auto">
         <v-btn icon variant="plain" :href="doiLink" target="_blank">
           <v-icon size="40">
-            <img src="/doi.svg" style="width: 40px; height: 40px" alt="DOI" />
+            <img src="/assets/icons/doi.svg" style="width: 40px; height: 40px" alt="DOI" />
           </v-icon>
         </v-btn>
       </v-col>
@@ -29,7 +28,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 
 // Props to receive data from the parent component
 const props = defineProps({

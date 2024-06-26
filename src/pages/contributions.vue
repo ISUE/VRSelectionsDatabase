@@ -2,16 +2,16 @@
   <v-container>
     <v-row align="center">
       <v-col cols="auto">
-        <router-link to="/">
+        <nuxt-link to="/">
           <v-row align="center" no-gutters>
             <v-col cols="auto">
-              <v-img width="50px" src="@/assets/vrfox.png" />
+              <v-img width="50px" src="vrfox.png" />
             </v-col>
             <v-col>
               <v-card-title class="large-text">Home</v-card-title>
             </v-col>
           </v-row>
-        </router-link>
+        </nuxt-link>
       </v-col>
       <v-col>
         <h1>
@@ -48,7 +48,7 @@
               </li>
               <li>
                 <strong>Submit a Pull Request:</strong> Fork the
-                <a :href="sourceCodeLink" target="_blank">ISUE/vr_selections</a>
+                <a :href="csvLink" target="_blank">ISUE/vr_selections</a>
                 repository and edit the
                 <span
                   style="
@@ -173,9 +173,9 @@
                           </v-expansion-panels>
                         </v-expansion-panel-text>
                       </v-expansion-panel>
-                    </v-expansion-panels>
+                    <!-- </v-expansion-panels> -->
 
-                    <v-expansion-panels>
+                    <!-- <v-expansion-panels> -->
                       <v-expansion-panel>
                         <v-expansion-panel-title>
                           Environment-referenced
@@ -768,7 +768,7 @@
                 <v-card class="mt-2">
                   <v-card-text>
                     <template v-slot:default>
-                      <v-img src="@/assets/webscreen.png" />
+                      <v-img src="/webscreen.png" />
                     </template>
                   </v-card-text>
                 </v-card>
@@ -785,15 +785,16 @@
 import { ref } from "vue";
 const citationText = ref<string>(
   `@inproceedings{anon2024selections,
-    title={From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
-    author={Anonymous, Fox and Anonymous, Mouse and Anonymous, Llama and Anonymous, Bear},
-    booktitle={Some Cool 2024 VR Interactions Conference},
-    pages={1-11},
-    year={2024}
-}`,
+      title={From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
+      author={Anonymous, Fox and Anonymous, Mouse and Anonymous, Llama and Anonymous, Bear},
+      booktitle={Some Cool 2024 VR Interactions Conference},
+      pages={1-11},
+      year={2024}
+  }`
 );
 const pdfLink = "path/to/pdf";
 const sourceCodeLink = "https://github.com/ISUE/vr_selections";
+const csvLink = "https://github.com/ISUE/vr_selections/public/data_website.csv";
 const labPageLink = "https://www.eecs.ucf.edu/isuelab/";
 const doiLink = "path/to/doi";
 </script>
