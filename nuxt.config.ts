@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
+      target: 'static',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0',
       title: 'VR Selections Interactive Visualizer',
