@@ -19,7 +19,11 @@
       <v-col cols="auto">
         <v-btn icon variant="plain" :href="doiLink" target="_blank">
           <v-icon size="40">
-            <img src="/assets/icons/doi.svg" style="width: 40px; height: 40px" alt="DOI" />
+            <img
+              src="assets/icons/doi.svg"
+              style="width: 40px; height: 40px"
+              alt="DOI"
+            />
           </v-icon>
         </v-btn>
       </v-col>
@@ -28,12 +32,8 @@
 </template>
 
 <script setup>
-
-// Props to receive data from the parent component
-const props = defineProps({
-  pdfLink: String,
-  sourceCodeLink: String,
-  labPageLink: String,
-  doiLink: String,
-});
+const pdfLink = "vrfox.png";
+const sourceCodeLink = "https://github.com/ISUE/vr_selections";
+const labPageLink = "https://www.eecs.ucf.edu/isuelab/";
+const doiLink = "https://doi.org";
 </script>

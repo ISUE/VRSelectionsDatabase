@@ -4,7 +4,7 @@ import type { Entry } from "~/types";
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.provide("loadCsv", async () => {
-    const csvFile = "/data_website.csv";
+    const csvFile = "data_website.csv";
 
     // Fetch CSV file
     const response = await fetch(csvFile);

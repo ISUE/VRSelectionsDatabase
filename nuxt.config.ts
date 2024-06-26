@@ -1,7 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
+const labBase = "/isuelab/research/vr_selections/";
+
 export default defineNuxtConfig({
+
+
   srcDir: "src/",
   css: [
     "@mdi/font/css/materialdesignicons.css",
@@ -9,11 +13,15 @@ export default defineNuxtConfig({
     "highlight.js/styles/stackoverflow-light.css",
   ],
   app: {
+    baseURL: "/isuelab/research/vr_selections/",
+    // baseURL: "/",
+    buildAssetsDir: "/isuelab/research/vr_selections/_nuxt/",
+    // buildAssetsDir: "/",
+    cdnURL: "/isuelab/research/vr_selections/",
     head: {
-      target: 'static',
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1.0',
-      title: 'VR Selections Interactive Visualizer',
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1.0",
+      title: "VR Selections Interactive Visualizer",
       meta: [
         {
           name: "description",
@@ -32,7 +40,10 @@ export default defineNuxtConfig({
           content:
             "Explore different selection techniques in consumer VR applications!",
         },
-        { property: "og:image", content: "${process.env.BASE_URL}/preview.png" },
+        {
+          property: "og:image",
+          content: `${process.env.BASE_URL}/preview.png`,
+        },
         // Twitter
         { name: "twitter:card", content: "summary_large_image" },
         { property: "twitter:domain", content: "45.56.116.241" },
@@ -46,7 +57,10 @@ export default defineNuxtConfig({
           content:
             "Explore different selection techniques in consumer VR applications!",
         },
-        { name: "twitter:image", content: "${process.env.BASE_URL}/preview.png" },
+        {
+          name: "twitter:image",
+          content: `${process.env.BASE_URL}/preview.png`,
+        },
       ],
       link: [
         {
@@ -54,9 +68,9 @@ export default defineNuxtConfig({
           href: "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap",
         },
         {
-          type: "image/x-icon",
-          href: "/logo.ico",
           rel: "icon",
+          type: "image/x-icon",
+          href: `${labBase}logo.ico`,
         },
       ],
     },
@@ -67,11 +81,6 @@ export default defineNuxtConfig({
   vite: {
     define: {
       "process.env.DEBUG": false,
-    },
-  },
-  hooks: {
-    "prerender:routes"({ routes }) {
-      routes.clear();
     },
   },
   modules: [

@@ -86,12 +86,7 @@
             <highlightjs language="bibtex" :code="citationText" />
           </v-card-text>
           <div>
-            <LinksSection
-              :pdfLink="pdfLink"
-              :sourceCodeLink="sourceCodeLink"
-              :labPageLink="labPageLink"
-              :doiLink="doiLink"
-            />
+            <LinksSection />
           </div>
         </v-card>
       </v-col>
@@ -173,9 +168,9 @@
                           </v-expansion-panels>
                         </v-expansion-panel-text>
                       </v-expansion-panel>
-                    <!-- </v-expansion-panels> -->
+                      <!-- </v-expansion-panels> -->
 
-                    <!-- <v-expansion-panels> -->
+                      <!-- <v-expansion-panels> -->
                       <v-expansion-panel>
                         <v-expansion-panel-title>
                           Environment-referenced
@@ -768,7 +763,7 @@
                 <v-card class="mt-2">
                   <v-card-text>
                     <template v-slot:default>
-                      <v-img src="/webscreen.png" />
+                      <v-img src="webscreen.png" />
                     </template>
                   </v-card-text>
                 </v-card>
@@ -779,6 +774,7 @@
       </v-col>
     </v-row>
   </v-container>
+  <CustomFooter />
 </template>
 
 <script setup lang="ts">
@@ -792,11 +788,8 @@ const citationText = ref<string>(
       year={2024}
   }`
 );
-const pdfLink = "path/to/pdf";
-const sourceCodeLink = "https://github.com/ISUE/vr_selections";
 const csvLink = "https://github.com/ISUE/vr_selections/public/data_website.csv";
-const labPageLink = "https://www.eecs.ucf.edu/isuelab/";
-const doiLink = "path/to/doi";
+const sourceCodeLink = "https://github.com/ISUE/vr_selections";
 </script>
 
 <style scoped>

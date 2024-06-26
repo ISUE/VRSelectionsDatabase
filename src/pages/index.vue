@@ -5,7 +5,7 @@
         <nuxt-link to="/">
           <v-row align="center" no-gutters>
             <v-col cols="auto">
-              <v-img width="50px" src="/vrfox.png" @load="checkImagesLoaded" />
+              <v-img width="50px" src="vrfox.png" @load="checkImagesLoaded" />
             </v-col>
             <v-col>
               <v-card-title class="large-text">Home</v-card-title>
@@ -53,12 +53,7 @@
             </ul>
           </v-card-text>
           <div>
-            <LinksSection
-              :pdfLink="pdfLink"
-              :sourceCodeLink="sourceCodeLink"
-              :labPageLink="labPageLink"
-              :doiLink="doiLink"
-            />
+            <LinksSection />
           </div>
         </v-card>
         <v-card class="mt-2">
@@ -78,7 +73,7 @@
       <v-col cols="12" md="6">
         <v-card class="mt-2">
           <template v-slot:default>
-            <v-img src="/webscreen.png" @load="checkImagesLoaded" />
+            <v-img src="webscreen.png" @load="checkImagesLoaded" />
           </template>
         </v-card>
       </v-col>
@@ -284,6 +279,7 @@
   <v-dialog v-model="showEntryDetailCard" width="auto">
     <EntryDetailCard :entry="selectedEntry" />
   </v-dialog>
+  <CustomFooter />
 </template>
 
 <script setup lang="ts">
@@ -435,7 +431,7 @@ const getThumbnailUrl = (url: string) => {
     return `https://img.youtube.com/vi/${videoId}/0.jpg`;
   } catch (error) {
     console.error(`Failed to generate a YouTube thumbnail for URL '${url}'`);
-    return "/open-in-new.svg";
+    return "open-in-new.svg";
   }
 };
 
@@ -450,11 +446,6 @@ const checkImagesLoaded = () => {
     imagesLoaded.value = true;
   }
 };
-
-const pdfLink = "path/to/pdf";
-const sourceCodeLink = "https://github.com/ISUE/vr_selections";
-const labPageLink = "https://www.eecs.ucf.edu/isuelab/";
-const doiLink = "path/to/doi";
 </script>
 
 <style scoped>
