@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row align="center" style="background-color: #f5f5f5; margin: 0px 0px;">
+    <v-row align="center" style="background-color: #f5f5f5; margin: 0px 0px">
       <v-col cols="auto">
         <nuxt-link to="/">
           <v-row align="center" no-gutters>

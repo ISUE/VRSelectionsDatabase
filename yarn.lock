@@ -1636,7 +1636,7 @@
     "@unhead/schema" "1.9.14"
     "@unhead/shared" "1.9.14"
 
-"@unhead/vue@^1.9.13":
+"@unhead/vue@^1.9.13", "@unhead/vue@^1.9.14":
   version "1.9.14"
   resolved "https://registry.yarnpkg.com/@unhead/vue/-/vue-1.9.14.tgz#ce77beb5984a452c14c429db53c41d0941b88abb"
   integrity sha512-Yc7Qv0ze+iLte4urHiA+ghkF7y+svrawrT+ZrCuGXkZ/eRTF/AY2SKex+rJQJZsP+fKEQ2pGb72IsI5kHFZT3A==

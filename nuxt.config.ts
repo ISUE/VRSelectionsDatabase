@@ -1,9 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
-const ucf = "https://www.eecs.ucf.edu";
-const lab = "/isuelab/research/vr_selections/";
-const ucf_lab = ucf + lab;
+const ucf_lab = "https://www.eecs.ucf.edu/isuelab/";
+const project = "research/vr_selections/";
+const project_page = ucf_lab + project;
 
 export default defineNuxtConfig({
   srcDir: "src/",
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         },
         // Open Graph / Facebook
         { property: "og:type", content: "website" },
-        { property: "og:url", content: ucf_lab },
+        { property: "og:url", content: project_page },
         {
           property: "og:title",
           content: "VR Selections Interactive Visualizer",
@@ -40,12 +40,12 @@ export default defineNuxtConfig({
         },
         {
           property: "og:image",
-          content: `${ucf_lab}/preview.png`,
+          content: `${project_page}/preview.png`,
         },
         // Twitter
         { name: "twitter:card", content: "summary_large_image" },
-        { property: "twitter:domain", content: ucf },
-        { property: "twitter:url", content: ucf_lab },
+        { property: "twitter:domain", content: ucf_lab },
+        { property: "twitter:url", content: project_page },
         {
           name: "twitter:title",
           content: "VR Selections Interactive Visualizer",
@@ -57,7 +57,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:image",
-          content: `${ucf_lab}/preview.png`,
+          content: `${project_page}/preview.png`,
         },
       ],
       link: [
@@ -68,7 +68,7 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/x-icon",
-          href: `${lab}logo.ico`,
+          href: "/isuelab/research/vr_selections/logo.ico",
         },
       ],
     },
@@ -87,12 +87,12 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }));
       });
     },
-    'nuxt-gtag',
+    "nuxt-gtag",
   ],
 
   gtag: {
-    id: 'G-Z88C79SNWQ'
+    id: "G-Z88C79SNWQ",
   },
 
-  plugins: ["~/plugins/highlight.ts"],
+  plugins: ["~/plugins/highlight.ts", "~/plugins/gtag.ts"],
 });

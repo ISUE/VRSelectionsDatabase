@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row align="center" style="background-color: #f5f5f5; margin: 0px 0px;">
+    <v-row align="center" style="background-color: #f5f5f5; margin: 0px 0px">
       <v-col cols="auto">
         <nuxt-link to="/">
           <v-row align="center" no-gutters>
@@ -790,6 +790,67 @@ const citationText = ref<string>(
 );
 const csvLink = "https://github.com/ISUE/vr_selections/public/data_website.csv";
 const sourceCodeLink = "https://github.com/ISUE/vr_selections";
+
+const ucf_lab = "https://www.eecs.ucf.edu/isuelab/";
+const project = "research/vr_selections/";
+const contributions = "/contributions";
+const project_page = ucf_lab + project;
+const ucf_lab_contributions = project_page + contributions;
+
+import { useHead } from "@unhead/vue";
+
+useHead({
+  title: "VR Selections Interactive Visualizer - Contributions",
+  meta: [
+    {
+      name: "description",
+      content:
+        "How to contibute to database of selections in consumer VR applications?",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: ucf_lab_contributions },
+    {
+      property: "og:title",
+      content: "VR Selections Interactive Visualizer",
+    },
+    {
+      property: "og:description",
+      content:
+        "How to contibute to database of selections in consumer VR applications?",
+    },
+    {
+      property: "og:image",
+      content: `${project}/preview.png`,
+    },
+    { name: "twitter:card", content: "summary_large_image" },
+    { property: "twitter:domain", content: ucf_lab },
+    { property: "twitter:url", content: project_page },
+    {
+      name: "twitter:title",
+      content: "VR Selections Interactive Visualizer",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "How to contibute to database of selections in consumer VR applications?",
+    },
+    {
+      name: "twitter:image",
+      content: `${project}/preview.png`,
+    },
+  ],
+  link: [
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap",
+    },
+    {
+      rel: "icon",
+      type: "image/x-icon",
+      href: "/isuelab/research/vr_selections/logo.ico",
+    },
+  ],
+});
 </script>
 
 <style scoped>
