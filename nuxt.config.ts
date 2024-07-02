@@ -87,7 +87,12 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }));
       });
     },
+    'nuxt-gtag',
   ],
+
+  gtag: {
+    id: 'G-Z88C79SNWQ'
+  },
 
   plugins: ["~/plugins/highlight.ts"],
 });

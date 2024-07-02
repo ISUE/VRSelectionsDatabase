@@ -16,13 +16,16 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "@vueuse/core": "^10.11.0",
     "d3-dsv": "^3.0.1",
+    "gtag": "^1.0.1",
     "highlight.js": "^11.9.0",
     "highlightjs": "^9.16.2",
     "nuxt": "^3.12.2",
+    "nuxt-gtag": "^2.0.6",
     "nuxt-highlightjs": "^1.0.3",
     "roboto-fontface": "^0.10.0",
     "vite-plugin-vuetify": "^2.0.3",
     "vue": "^3.4.30",
+    "vue-gtag": "^2.0.1",
     "vue-highlight.js": "^3.1.0",
     "vuetify": "^3.6.10"
   }
