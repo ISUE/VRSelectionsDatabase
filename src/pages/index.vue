@@ -39,17 +39,6 @@
                 Target Type) and 'How' (Indication and Confirmation stages,
                 Interactor, Outcome) taxonomies (image on the right).
               </li>
-              <li>
-                <div>
-                  This database is open-access,
-                  <nuxt-link to="/contributions"
-                    >open to contributions</nuxt-link
-                  >, and will be updated with new games and newly identified
-                  methods for selections in consumer VR applications. If you
-                  find it useful in your work, please consider
-                  <nuxt-link to="/contributions">citing</nuxt-link> it.
-                </div>
-              </li>
             </ul>
           </v-card-text>
           <div>
@@ -66,6 +55,32 @@
             from the target. For Confirmation, Analog - Continued Press is
             combined with Dwell. For these instances, we used the same video
             timestamp and differentiate between them with the * and **.
+          </v-card-text>
+        </v-card>
+        <v-card class="mt-2">
+          <v-card-title>Contributing</v-card-title>
+          <v-card-text>
+            <v-row>
+              <v-col
+                cols="2"
+                class="d-flex flex-column justify-center align-center"
+              >
+                <nuxt-link to="/contributions">
+                  <div class="text-center">
+                    <v-icon size="50">mdi-arrow-right-circle</v-icon>
+                    <div>CONTRIBUTE</div>
+                  </div>
+                </nuxt-link>
+              </v-col>
+              <v-col cols="10">
+                This database is open-access,
+                <nuxt-link to="/contributions">open to contributions</nuxt-link
+                >, and will be updated with new games and newly identified
+                methods for selections in consumer VR applications. If you find
+                it useful in your work, please consider
+                <nuxt-link to="/contributions">citing</nuxt-link> it.
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>

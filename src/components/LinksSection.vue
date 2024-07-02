@@ -7,16 +7,6 @@
         </v-btn>
       </v-col>
       <v-col cols="auto">
-        <v-btn icon variant="plain" :href="sourceCodeLink" target="_blank">
-          <v-icon size="40">mdi-github</v-icon>
-        </v-btn>
-      </v-col>
-      <v-col cols="auto">
-        <v-btn icon variant="plain" :href="labPageLink" target="_blank">
-          <v-icon size="40">mdi-flask</v-icon>
-        </v-btn>
-      </v-col>
-      <v-col cols="auto">
         <v-btn icon variant="plain" :href="doiLink" target="_blank">
           <v-icon size="40">
             <img
@@ -25,6 +15,16 @@
               alt="DOI"
             />
           </v-icon>
+        </v-btn>
+      </v-col>
+      <v-col cols="auto">
+        <v-btn icon variant="plain" :href="sourceCodeLink" target="_blank">
+          <v-icon size="40">mdi-github</v-icon>
+        </v-btn>
+      </v-col>
+      <v-col cols="auto">
+        <v-btn icon variant="plain" :href="labPageLink" target="_blank">
+          <v-icon size="40">mdi-flask</v-icon>
         </v-btn>
       </v-col>
     </v-row>
