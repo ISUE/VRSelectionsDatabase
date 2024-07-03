@@ -1,19 +1,21 @@
-/**
- * plugins/vuetify.ts
- *
- * Framework documentation: https://vuetifyjs.com`
- */
+// plugins/vuetify.ts
+import "@mdi/font/css/materialdesignicons.css"; // Ensure the icon library is imported
 
-// Styles
-import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
-
-// Composables
 import { createVuetify } from "vuetify";
 
-// https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
-export default createVuetify({
-  theme: {
-    defaultTheme: "light",
-  },
+export default defineNuxtPlugin((nuxtApp) => {
+  const vuetify = createVuetify({
+    theme: {
+      defaultTheme: "myTheme",
+      themes: {
+        myTheme: {
+          variables: {
+            fontFamilyBase: "Roboto, sans-serif",
+          },
+        },
+      },
+    },
+  });
+  nuxtApp.vueApp.use(vuetify);
 });

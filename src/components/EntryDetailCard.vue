@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import { Entry } from "@/types/entry";
+import type { Entry } from "~/types";
 
 defineProps<{
   entry: Entry;
@@ -47,19 +47,19 @@ const getThumbnailUrl = (url: string) => {
             <strong>Outcome:</strong> {{ entry.outcome }} <br />
             <strong>Platforms:</strong>
             <img
-              v-if="entry.quest === 'true'"
+              v-if="entry.quest === true"
               src="../assets/icons/quest.svg"
               alt="Quest"
               class="platform-icon"
             />
             <img
-              v-if="entry.steam === 'true'"
+              v-if="entry.steam === true"
               src="../assets/icons/steam.svg"
               alt="Steam"
               class="platform-icon"
             />
             <img
-              v-if="entry.psvr === 'true'"
+              v-if="entry.psvr === true"
               src="../assets/icons/psvr.svg"
               alt="PSVR"
               class="platform-icon"

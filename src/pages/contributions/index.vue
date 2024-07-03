@@ -1,17 +1,17 @@
 <template>
   <v-container>
-    <v-row align="center">
+    <v-row align="center" style="background-color: #f5f5f5; margin: 0px 0px">
       <v-col cols="auto">
-        <router-link to="/">
+        <nuxt-link to="/">
           <v-row align="center" no-gutters>
             <v-col cols="auto">
-              <v-img width="50px" src="@/assets/vrfox.png" />
+              <v-img width="50px" src="vrfox.png" />
             </v-col>
             <v-col>
               <v-card-title class="large-text">Home</v-card-title>
             </v-col>
           </v-row>
-        </router-link>
+        </nuxt-link>
       </v-col>
       <v-col>
         <h1>
@@ -48,7 +48,7 @@
               </li>
               <li>
                 <strong>Submit a Pull Request:</strong> Fork the
-                <a :href="sourceCodeLink" target="_blank">ISUE/vr_selections</a>
+                <a :href="csvLink" target="_blank">ISUE/vr_selections</a>
                 repository and edit the
                 <span
                   style="
@@ -84,14 +84,13 @@
               consider citing the publication that this work is a part of:
             </p>
             <highlightjs language="bibtex" :code="citationText" />
+            <!-- !TODO -->
+            <!-- <br />
+            We are also thankful to Tam Nguyen, Taras Maslych, and Marco Emporio for their
+            ideas and support in the creation of this page. -->
           </v-card-text>
           <div>
-            <LinksSection
-              :pdfLink="pdfLink"
-              :sourceCodeLink="sourceCodeLink"
-              :labPageLink="labPageLink"
-              :doiLink="doiLink"
-            />
+            <LinksSection />
           </div>
         </v-card>
       </v-col>
@@ -173,9 +172,9 @@
                           </v-expansion-panels>
                         </v-expansion-panel-text>
                       </v-expansion-panel>
-                    </v-expansion-panels>
+                      <!-- </v-expansion-panels> -->
 
-                    <v-expansion-panels>
+                      <!-- <v-expansion-panels> -->
                       <v-expansion-panel>
                         <v-expansion-panel-title>
                           Environment-referenced
@@ -768,7 +767,7 @@
                 <v-card class="mt-2">
                   <v-card-text>
                     <template v-slot:default>
-                      <v-img src="@/assets/webscreen.png" />
+                      <v-img src="webscreen.png" />
                     </template>
                   </v-card-text>
                 </v-card>
@@ -779,23 +778,83 @@
       </v-col>
     </v-row>
   </v-container>
+  <CustomFooter />
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 const citationText = ref<string>(
   `@inproceedings{anon2024selections,
-    title={From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
-    author={Anonymous, Fox and Anonymous, Mouse and Anonymous, Llama and Anonymous, Bear},
-    booktitle={Some Cool 2024 VR Interactions Conference},
-    pages={1-11},
-    year={2024}
-}`,
+      title={From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
+      author={Anonymous, Fox and Anonymous, Mouse and Anonymous, Llama and Anonymous, Bear},
+      booktitle={Some Cool 2024 VR Interactions Conference},
+      pages={1-11},
+      year={2024}
+}`
 );
-const pdfLink = "path/to/pdf";
+const csvLink = "https://github.com/ISUE/vr_selections/public/data_website.csv";
 const sourceCodeLink = "https://github.com/ISUE/vr_selections";
-const labPageLink = "https://www.eecs.ucf.edu/isuelab/";
-const doiLink = "path/to/doi";
+
+const ucf_lab = "https://www.eecs.ucf.edu/isuelab/";
+const project = "research/vr_selections/";
+const contributions = "/contributions";
+const project_page = ucf_lab + project;
+const ucf_lab_contributions = project_page + contributions;
+
+import { useHead } from "@unhead/vue";
+
+useHead({
+  title: "VR Selections Interactive Visualizer - Contributions",
+  meta: [
+    {
+      name: "description",
+      content:
+        "How to contibute to database of selections in consumer VR applications?",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: ucf_lab_contributions },
+    {
+      property: "og:title",
+      content: "VR Selections Interactive Visualizer",
+    },
+    {
+      property: "og:description",
+      content:
+        "How to contibute to database of selections in consumer VR applications?",
+    },
+    {
+      property: "og:image",
+      content: `${project}/preview.png`,
+    },
+    { name: "twitter:card", content: "summary_large_image" },
+    { property: "twitter:domain", content: ucf_lab },
+    { property: "twitter:url", content: project_page },
+    {
+      name: "twitter:title",
+      content: "VR Selections Interactive Visualizer",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "How to contibute to database of selections in consumer VR applications?",
+    },
+    {
+      name: "twitter:image",
+      content: `${project}/preview.png`,
+    },
+  ],
+  link: [
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap",
+    },
+    {
+      rel: "icon",
+      type: "image/x-icon",
+      href: "/isuelab/research/vr_selections/logo.ico",
+    },
+  ],
+});
 </script>
 
 <style scoped>
