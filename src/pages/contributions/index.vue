@@ -86,7 +86,7 @@
             <highlightjs language="bibtex" :code="citationText" />
             <!-- !TODO -->
             <!-- <br />
-            We are also thankful to Tam Nguyen, Taras Maslych, and Marco Emporio for their
+            We are also thankful to Tam T. Nguyen, Taras Maslych, and Marco Emporio for their
             ideas and support in the creation of this page. -->
           </v-card-text>
           <div>
