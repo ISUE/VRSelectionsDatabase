@@ -1,13 +1,14 @@
 <script></script>
 
 <template>
-  <!-- <v-footer class="footer" padless> -->
-    <v-row class="footer" justify="center">
-      <v-col class="text-center" cols="12">
-        <span>© ISUE Lab, 2024</span>
-      </v-col>
-    </v-row>
-  <!-- </v-footer> -->
+  <v-row class="footer" justify="center">
+    <v-col class="text-center" cols="12">
+      <span
+        >© ISUE Lab, 2024. Free to use for research and commercial
+        purposes.</span
+      >
+    </v-col>
+  </v-row>
 </template>
 
 <style scoped>
