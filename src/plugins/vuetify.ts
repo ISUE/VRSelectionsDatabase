@@ -1,5 +1,4 @@
 // plugins/vuetify.ts
-// import Vuetify from 'vuetify/lib/framework';
 import "@mdi/font/css/materialdesignicons.css"; // Ensure the icon library is imported
 
 import "vuetify/styles";
