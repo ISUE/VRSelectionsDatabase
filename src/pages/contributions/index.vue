@@ -84,10 +84,9 @@
               consider citing the publication that this work is a part of:
             </p>
             <highlightjs language="bibtex" :code="citationText" />
-            <!-- !TODO -->
-            <!-- <br />
-            We are also thankful to Tam T. Nguyen, Taras Maslych, and Marco Emporio for their
-            ideas and support in the creation of this page. -->
+            <br />
+            We are also thankful to Tam T. Nguyen, Taras Maslych, and Marco
+            Emporio for their ideas and support in the creation of this page.
           </v-card-text>
           <div>
             <LinksSection />

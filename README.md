@@ -48,4 +48,6 @@ npx serve .output/public
 
 ### Deploy
 
+```bash
 scp -P PORT -r ./.output/public/ USER@IP:/home/www/website
+```
