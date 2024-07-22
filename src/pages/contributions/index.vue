@@ -99,6 +99,10 @@
       <v-col>
         <v-card class="mt-2">
           <v-card-title>Coding Manual and the Taxonomy</v-card-title>
+          <v-card-subtitle
+            >Click on categories to expand definitions and
+            examples</v-card-subtitle
+          >
           <v-card-text>
             <v-row>
               <v-col cols="12" md="6">
@@ -106,7 +110,7 @@
                   <v-card-title>Where taxonomy</v-card-title>
                   <v-card-text>
                     <b>Reference Frame</b>
-                    <v-expansion-panels>
+                    <v-expansion-panels v-model="panel">
                       <v-expansion-panel>
                         <v-expansion-panel-title
                           >Body-referenced</v-expansion-panel-title
@@ -114,7 +118,7 @@
                         <v-expansion-panel-text>
                           Body-referenced objects follow the movement of a
                           user's body part.
-                          <v-expansion-panels>
+                          <v-expansion-panels v-model="nestedPanel">
                             <v-expansion-panel>
                               <v-expansion-panel-title
                                 >Hand-referenced</v-expansion-panel-title
@@ -799,6 +803,10 @@ const project = "research/vr_selections/";
 const contributions = "/contributions";
 const project_page = ucf_lab + project;
 const ucf_lab_contributions = project_page + contributions;
+
+// Expansion panel state
+const panel = ref([0]); // Open the first outer panel by default
+const nestedPanel = ref([0]); // Open the first nested panel by default
 
 import { useHead } from "@unhead/vue";
 

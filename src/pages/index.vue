@@ -268,6 +268,7 @@
               :headers="headers"
               :items="filteredData"
               :items-per-page="25"
+              :hover="true"
               v-model:search="debouncedSearch"
             >
               <template v-slot:item.action="{ item }">
