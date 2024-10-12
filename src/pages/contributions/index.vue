@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row align="center" style="background-color: #f5f5f5; margin: 0px 0px">
       <v-col cols="auto">
         <nuxt-link to="/">
@@ -22,8 +22,8 @@
     </v-row>
 
     <v-row>
-      <v-col>
-        <v-card class="mt-2">
+      <v-col class="d-flex flex-column" cols="12" md="4">
+        <v-card class="mt-2 flex-grow-1">
           <v-card-title>Contributions</v-card-title>
           <v-card-text>
             <p>
@@ -35,7 +35,7 @@
             </p>
           </v-card-text>
         </v-card>
-        <v-card class="mt-2">
+        <v-card class="mt-2 flex-grow-1">
           <v-card-title>Contribution Guidelines</v-card-title>
           <v-card-text>
             <ul class="ml-12">
@@ -75,22 +75,19 @@
         </v-card>
       </v-col>
 
-      <v-col>
-        <v-card class="mt-2">
+      <v-col class="d-flex flex-column" cols="12" md="8">
+        <v-card class="mt-2 flex-grow-1">
           <v-card-title>Citing</v-card-title>
-          <v-card-text>
+          <v-card-text class="py-0">
             <p>
               If you find this database and taxonomy useful in your work, please
               consider citing the publication that this work is a part of:
             </p>
             <highlightjs language="bibtex" :code="citationText" />
-            <br />
             We are also thankful to Tam T. Nguyen, Taras Maslych, and Marco
             Emporio for their ideas and support in the creation of this page.
           </v-card-text>
-          <div>
-            <LinksSection />
-          </div>
+          <LinksSection />
         </v-card>
       </v-col>
     </v-row>
@@ -787,12 +784,39 @@
 <script setup lang="ts">
 import { ref } from "vue";
 const citationText = ref<string>(
-  `@inproceedings{anon2024selections,
+  `@inproceedings{maslych2024selectionsdatabase,
+      author = {Maslych, Mykola and Yu, Difeng and Ghasemaghaei, Amirpouya and 
+        Hmaiti, Yahya and Martinez, Esteban Segarra and Simon, Dominic and 
+        Taranta, Eugene Matthew and Bergstr\"{o}m, Joanna and LaViola, Joseph J.},
+      booktitle = {2024 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)}, 
+      title = {From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
+      url = {https://ieeeismar.org/full-program/},
+      publisher = {IEEE},
+      address = {Piscataway, NJ, USA},
+      location = {Seattle, WA, USA},
+      series = {ISMAR '24},
+      pages = {1-10},
+      month = {October},
+      year = {2024},
+}`
+);
+const updatedCitationText = ref<string>(
+  `@inproceedings{maslych2024selectionsdatabase,
+      author={Maslych, Mykola and Yu, Difeng and Ghasemaghaei, Amirpouya and Hmaiti, Yahya and Martinez, Esteban Segarra and Simon, Dominic and Taranta, Eugene Matthew and Bergstr\"{o}m, Joanna and LaViola, Joseph J.},
+      booktitle={2024 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)}, 
       title={From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
-      author={Anonymous, Fox and Anonymous, Mouse and Anonymous, Llama and Anonymous, Bear},
-      booktitle={Some Cool 2024 VR Interactions Conference},
-      pages={1-11},
-      year={2024}
+      year={2024},
+      publisher = {IEEE},
+      address = {Piscataway, NJ, USA},
+      volume={},
+      number={},
+      pages={1-10},
+      doi={},
+      url = {},
+      ISSN={},
+      month={October},
+      location={Seattle, WA, USA},
+      series={ISMAR '24}
 }`
 );
 const csvLink = "https://github.com/ISUE/vr_selections/public/data_website.csv";

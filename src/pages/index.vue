@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row align="center" style="background-color: #f5f5f5; margin: 0px 0px">
       <v-col cols="auto">
         <nuxt-link to="/">
@@ -22,8 +22,8 @@
     </v-row>
 
     <v-row>
-      <v-col cols="12" md="6">
-        <v-card class="mt-2">
+      <v-col class="d-flex flex-column" cols="12" md="6">
+        <v-card class="mt-2 flex-grow-1">
           <v-card-title>What is this?</v-card-title>
           <v-card-text>
             <ul class="ml-12">
@@ -45,7 +45,7 @@
             <LinksSection />
           </div>
         </v-card>
-        <v-card class="mt-2">
+        <v-card class="mt-2 flex-grow-1">
           <v-card-title>Note</v-card-title>
           <v-card-text class="ml-4">
             Entries with * and ** indicate that the Interactor and Indication or
@@ -57,7 +57,7 @@
             timestamp and differentiate between them with the * and **.
           </v-card-text>
         </v-card>
-        <v-card class="mt-2">
+        <v-card class="mt-2 flex-grow-1">
           <v-card-title>Contributing</v-card-title>
           <v-card-text>
             <v-row>
@@ -68,7 +68,6 @@
                 <nuxt-link to="/contributions">
                   <div class="text-center">
                     <v-icon size="50">mdi-arrow-right-circle</v-icon>
-                    <div>CONTRIBUTE</div>
                   </div>
                 </nuxt-link>
               </v-col>
@@ -85,17 +84,17 @@
         </v-card>
       </v-col>
 
-      <v-col cols="12" md="6">
-        <v-card class="mt-2">
+      <v-col class="d-flex flex-column" cols="12" md="6">
+        <v-card class="mt-2 flex-grow-1 d-flex align-center justify-center">
           <template v-slot:default>
-            <v-img src="webscreen.png" @load="checkImagesLoaded" />
+            <v-img src="webscreen.png" @load="checkImagesLoaded" max-width="100%" contain />
           </template>
         </v-card>
       </v-col>
     </v-row>
 
     <v-row>
-      <v-col cols="3">
+      <v-col cols="12" md="3">
         <v-card>
           <v-card-title class="d-flex align-center">
             <v-icon icon="mdi-filter" />
@@ -239,7 +238,7 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="9">
+      <v-col cols="12" md="9">
         <v-card>
           <v-card-title class="d-flex align-center">
             <v-icon icon="mdi-database" />
@@ -273,6 +272,7 @@
             >
               <template v-slot:item.action="{ item }">
                 <v-btn
+                  size="small"
                   variant="plain"
                   icon="mdi-information-outline"
                   @click="openEntryDetailCard(item)"
@@ -347,7 +347,7 @@ const headers = [
     title: "Application",
     key: "application",
     sortable: false,
-    width: "200px",
+    // width: "30%",
     filterable: false,
   },
   {
@@ -355,9 +355,9 @@ const headers = [
     key: "description",
     sortable: false,
     filterable: false,
-    width: "300px",
+    // width: "50%",
   },
-  { title: "Dimensions", key: "dimensions", sortable: false },
+  { title: "Dim.", key: "dimensions", sortable: false },
   { title: "Reference Frame", key: "referenceFrame", sortable: false },
   { title: "Proximity", key: "proximity", sortable: false },
   { title: "Target Type", key: "targetType", sortable: false },

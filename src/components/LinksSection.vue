@@ -1,5 +1,5 @@
 <template>
-  <v-card-text>
+  <v-card-text class="m-1 py-1">
     <v-row justify="space-around">
       <v-col cols="auto">
         <v-btn icon variant="plain" :href="pdfLink" target="_blank">
