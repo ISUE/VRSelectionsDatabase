@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1.0",
-      title: "VR Selections Interactive Visualizer",
+      title: "VR Selection Techniques Database",
       meta: [
         {
           name: "description",
@@ -30,7 +30,7 @@ export default defineNuxtConfig({
         { property: "og:url", content: project_page },
         {
           property: "og:title",
-          content: "VR Selections Interactive Visualizer",
+          content: "VR Selection Techniques Database",
         },
         {
           property: "og:description",
@@ -47,7 +47,7 @@ export default defineNuxtConfig({
         { property: "twitter:url", content: project_page },
         {
           name: "twitter:title",
-          content: "VR Selections Interactive Visualizer",
+          content: "VR Selection Techniques Database",
         },
         {
           name: "twitter:description",

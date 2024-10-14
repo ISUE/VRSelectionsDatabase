@@ -15,7 +15,7 @@
       </v-col>
       <v-col>
         <h1>
-          Interactive Visualizer for Object Selection Techniques in Consumer VR
+          Interactive Database for Object Selection Techniques in Consumer VR
           Applications
         </h1>
       </v-col>

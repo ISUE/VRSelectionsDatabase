@@ -15,7 +15,7 @@
       </v-col>
       <v-col>
         <h1>
-          Interactive Visualizer for Object Selection Techniques in Consumer VR
+          Interactive Database for Object Selection Techniques in Consumer VR
           Applications
         </h1>
       </v-col>
@@ -84,8 +84,21 @@
               consider citing the publication that this work is a part of:
             </p>
             <highlightjs language="bibtex" :code="citationText" />
-            We are also thankful to Tam T. Nguyen, Taras Maslych, and Marco
-            Emporio for their ideas and support in the creation of this page.
+          </v-card-text>
+          <v-card-text>
+            We are also thankful to
+            <a
+              href="https://www.linkedin.com/in/tam-nguyen-ab5609201/"
+              target="_blank"
+              >Tam T. Nguyen</a
+            >,
+            <a href="https://www.linkedin.com/in/maslycht/" target="_blank"
+              >Taras Maslych</a
+            >, and
+            <a href="https://www.linkedin.com/in/marco-emporio/" target="_blank"
+              >Marco Emporio</a
+            >
+            for their ideas and support in the creation of this page.
           </v-card-text>
           <LinksSection />
         </v-card>
@@ -819,8 +832,9 @@ const updatedCitationText = ref<string>(
       series={ISMAR '24}
 }`
 );
-const csvLink = "https://github.com/ISUE/vr_selections/public/data_website.csv";
-const sourceCodeLink = "https://github.com/ISUE/vr_selections";
+const csvLink =
+  "https://github.com/ISUE/VRSelectionsDatabase/blob/main/src/public/data_website.csv";
+const sourceCodeLink = "https://github.com/ISUE/VRSelectionsDatabase";
 
 const ucf_lab = "https://www.eecs.ucf.edu/isuelab/";
 const project = "research/vr_selections/";
@@ -835,7 +849,7 @@ const nestedPanel = ref([0]); // Open the first nested panel by default
 import { useHead } from "@unhead/vue";
 
 useHead({
-  title: "VR Selections Interactive Visualizer - Contributions",
+  title: "VR Selection Techniques Database - Contributions",
   meta: [
     {
       name: "description",
@@ -846,7 +860,7 @@ useHead({
     { property: "og:url", content: ucf_lab_contributions },
     {
       property: "og:title",
-      content: "VR Selections Interactive Visualizer",
+      content: "VR Selection Techniques Database",
     },
     {
       property: "og:description",
@@ -862,7 +876,7 @@ useHead({
     { property: "twitter:url", content: project_page },
     {
       name: "twitter:title",
-      content: "VR Selections Interactive Visualizer",
+      content: "VR Selection Techniques Database",
     },
     {
       name: "twitter:description",

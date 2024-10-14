@@ -1,20 +1,32 @@
-# Database of selection methods in consumer VR applications
+# Database of Selection Techniques in Consumer VR Applications
+
+This [interactive database](https://www.eecs.ucf.edu/isuelab/research/vr_selections/) contains a taxonomy with examples and scenarios where selections occur in 200+ consumer VR applications. The goal of this work is to connect the research and literature on VR selection methodology with implementations in-practice. It was presented at [ISMAR 2024](https://ieeeismar.org/).
+
+![Taxonomy](docs/TAXONOMY.svg)
 
 ## Contributing to the database
 
-Community contributions are welcome! Please open a pull request with additions to [data_website.csv](src\public\data_website.csv) file. After we review the changes and approve them, they will appear on the website.
+Community contributions are welcome! Please open a pull request with changes to [data_website.csv](src/public/data_website.csv) file. After we review the changes and approve them, they will appear on the website.
 
 ## Citing
 
 If you find this work useful, consider citing it:
 
 ```bibtex
-@inproceedings{anon2024selections,
-      title={From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
-      author={Anonymous, Fox and Anonymous, Mouse and Anonymous, Llama and Anonymous, Bear},
-      booktitle={Some Cool 2024 VR Interactions Conference},
-      pages={1-11},
-      year={2024}
+@inproceedings{maslych2024selectionsdatabase,
+      author = {Maslych, Mykola and Yu, Difeng and Ghasemaghaei, Amirpouya and
+            Hmaiti, Yahya and Martinez, Esteban Segarra and Simon, Dominic and
+            Taranta, Eugene Matthew and Bergstr"{o}m, Joanna and LaViola, Joseph J.},
+      booktitle = {2024 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)},
+      title = {From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
+      url = {https://ieeeismar.org/full-program/},
+      publisher = {IEEE},
+      address = {Piscataway, NJ, USA},
+      location = {Seattle, WA, USA},
+      series = {ISMAR '24},
+      pages = {1-10},
+      month = {October},
+      year = {2024},
 }
 ```
 
