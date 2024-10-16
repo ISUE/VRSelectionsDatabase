@@ -1,6 +1,6 @@
 # Database of Selection Techniques in Consumer VR Applications
 
-This [interactive database](https://www.eecs.ucf.edu/isuelab/research/vr_selections/) contains a taxonomy with examples and scenarios where selections occur in 200+ consumer VR applications. The goal of this work is to connect the research and literature on VR selection methodology with implementations in-practice. It was presented at [ISMAR 2024](https://ieeeismar.org/).
+This [interactive database](https://www.eecs.ucf.edu/isuelab/research/vr_selections/) contains a taxonomy with examples and scenarios where selections occur in 200+ consumer VR applications. The goal of this work is to connect the research and literature on VR selection methodology with implementations in-practice. [The research paper](https://www.eecs.ucf.edu/isuelab/publications/pubs/MaslychISMAR2024.pdf) was presented at IEEE ISMAR 2024.
 
 ![Taxonomy](docs/TAXONOMY.svg)
 
