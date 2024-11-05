@@ -803,33 +803,15 @@ const citationText = ref<string>(
         Taranta, Eugene Matthew and Bergstr\"{o}m, Joanna and LaViola, Joseph J.},
       booktitle = {2024 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)}, 
       title = {From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
-      url = {https://ieeeismar.org/full-program/},
+      url = {https://www.eecs.ucf.edu/isuelab/publications/pubs/MaslychISMAR2024.pdf},
       publisher = {IEEE},
       address = {Piscataway, NJ, USA},
       location = {Seattle, WA, USA},
       series = {ISMAR '24},
-      pages = {1-10},
+      pages = {990--999},
+      doi={10.1109/ISMAR62088.2024.00115},
       month = {October},
       year = {2024},
-}`
-);
-const updatedCitationText = ref<string>(
-  `@inproceedings{maslych2024selectionsdatabase,
-      author={Maslych, Mykola and Yu, Difeng and Ghasemaghaei, Amirpouya and Hmaiti, Yahya and Martinez, Esteban Segarra and Simon, Dominic and Taranta, Eugene Matthew and Bergstr\"{o}m, Joanna and LaViola, Joseph J.},
-      booktitle={2024 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)}, 
-      title={From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
-      year={2024},
-      publisher = {IEEE},
-      address = {Piscataway, NJ, USA},
-      volume={},
-      number={},
-      pages={1-10},
-      doi={},
-      url = {},
-      ISSN={},
-      month={October},
-      location={Seattle, WA, USA},
-      series={ISMAR '24}
 }`
 );
 const csvLink =
