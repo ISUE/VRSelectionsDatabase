@@ -798,9 +798,9 @@
 import { ref } from "vue";
 const citationText = ref<string>(
   `@inproceedings{maslych2024selectionsdatabase,
-      author = {Maslych, Mykola and Yu, Difeng and Ghasemaghaei, Amirpouya and 
-        Hmaiti, Yahya and Martinez, Esteban Segarra and Simon, Dominic and 
-        Taranta, Eugene Matthew and Bergstr\"{o}m, Joanna and LaViola, Joseph J.},
+      author = {Maslych, Mykola and Yu, Difeng and Ghasemaghaei, Amirpouya and
+        Hmaiti, Yahya and Martinez, Esteban Segarra and Simon, Dominic and
+        Taranta, Eugene Matthew and Bergstr{\"o}m, Joanna and LaViola Jr, Joseph J.},
       booktitle = {2024 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)}, 
       title = {From Research to Practice: Survey and Taxonomy of Object Selection in Consumer VR Applications},
       url = {https://www.eecs.ucf.edu/isuelab/publications/pubs/MaslychISMAR2024.pdf},

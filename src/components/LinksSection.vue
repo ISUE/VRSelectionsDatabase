@@ -7,9 +7,8 @@
         </v-btn>
       </v-col>
       <v-col cols="auto">
-        <!-- DOI button without link, greyed out -->
-        <v-btn icon variant="plain" disabled>
-          <v-icon size="40" style="opacity: 0.5;">
+        <v-btn icon variant="plain" :href="doiLink" target="_blank">
+          <v-icon size="40">
             <img
               src="assets/icons/doi.svg"
               style="width: 40px; height: 40px"
@@ -37,4 +36,5 @@ const pdfLink =
   "https://www.eecs.ucf.edu/isuelab/publications/pubs/MaslychISMAR2024.pdf";
 const sourceCodeLink = "https://github.com/ISUE/VRSelectionsDatabase";
 const labPageLink = "https://www.eecs.ucf.edu/isuelab/";
+const doiLink = "https://doi.org/10.1109/ISMAR62088.2024.00115";
 </script>
